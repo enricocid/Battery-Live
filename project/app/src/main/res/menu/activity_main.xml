@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- this is the toolbar menu on main activity -->
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!-- about -->
+    <item
+        android:id="@+id/about"
+        android:orderInCategory="200"
+        android:title="@string/about"
+        app:showAsAction="never" />
+</menu>

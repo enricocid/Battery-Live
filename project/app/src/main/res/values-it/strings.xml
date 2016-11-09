@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- italian strings -->
+
+<resources>
+
+    <string name="colors">Colori</string>
+    <string name="color_palette">Palette colori</string>
+    <string name="hello_message">Scegli un colore!</string>
+    <string name="dismiss">Perfetto!</string>
+    <string name="about_body"><![CDATA[
+        battery live, una app progettata da <b>Enrico D\'Ortenzio</b>.<br/>
+        <a href=\'https://plus.google.com/u/0/+EnricoDortenzio/posts\'>Google+</a>&nbsp;&nbsp;
+        <a href=\'https://github.com/enricocid\'>GitHub</a>
+        ]]></string>
+    <string name="md_done_label">Fatto</string>
+    <string name="md_cancel_label">Cancella</string>
+
+</resources>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- strings -->
+
+<resources>
+    <string name="app_name" translatable="false">Battery Live</string>
+    <string name="colors">Colors</string>
+    <string name="color_palette">Color Palette</string>
+    <string name="hello_message">Choose a color!</string>
+    <string name="about" translatable="false">About</string>
+    <string name="dismiss">Perfect!</string>
+    <string name="about_body"><![CDATA[
+        battery live, an app  designed by <b>Enrico D\'Ortenzio</b>.<br/>
+        <a href=\'https://plus.google.com/u/0/+EnricoDortenzio/posts\'>Google+</a>&nbsp;&nbsp;
+        <a href=\'https://github.com/enricocid\'>GitHub</a>
+        ]]></string>
+</resources>
