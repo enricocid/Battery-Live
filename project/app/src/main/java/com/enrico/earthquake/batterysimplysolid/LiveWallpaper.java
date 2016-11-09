@@ -99,6 +99,7 @@ public class LiveWallpaper extends WallpaperService {
                     Paint p = new Paint();
                     Paint p2 = new Paint();
 
+                    //get battery level
                     BatteryManager bm = (BatteryManager) getSystemService(BATTERY_SERVICE);
                     int batLevel = bm.getIntProperty(BatteryManager.BATTERY_PROPERTY_CAPACITY);
 
