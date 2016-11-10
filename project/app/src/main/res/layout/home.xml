@@ -9,9 +9,7 @@
     android:layout_height="match_parent">
 
     <!-- The toolbar -->
-    <include
-        android:id="@+id/toolbar"
-        layout="@layout/toolbar" />
+    <include layout="@layout/toolbar" />
 
     <ImageView
         android:id="@+id/imageView"
