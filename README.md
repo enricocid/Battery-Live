@@ -3,6 +3,8 @@
 
 ![ScreenShot](https://raw.githubusercontent.com/enricocid/Battery-Live/master/art/solid.png)
 
+![ScreenShot](https://raw.githubusercontent.com/enricocid/Battery-Live/master/art/Battery_gif.gif)
+
 Battery Live is a simple app to apply a livewallpaper based on battery level.
 It has a color chooser dialog where user can choose the color of the charge from presets or from custom hex code. The color of the discharge level is the complementary color of the applied color.
 There's are also some UI animations and a function to determine if the applied color is light or not used to change the toolbar/status bar color to dark or light.
