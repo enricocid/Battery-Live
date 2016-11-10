@@ -30,6 +30,9 @@ F-Droid
   <img alt="Get it on F-Droid"       src="https://raw.githubusercontent.com/enricocid/Storage-USB/master/art/fdroid.png" />
 </a>
 
+**For more material colors please have a look here:**
+
+https://www.materialpalette.com/
 
 
 
