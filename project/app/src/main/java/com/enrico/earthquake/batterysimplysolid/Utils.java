@@ -15,12 +15,6 @@ import android.view.View;
 
 class Utils {
 
-    //set the solid color
-    static void recreate(Activity activity) {
-
-        activity.recreate();
-    }
-
     //function to invert color value
     static int getComplementaryColor(int colorToInvert) {
 

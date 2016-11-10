@@ -232,7 +232,7 @@ public class MainActivity extends AppCompatActivity implements ColorChooserDialo
 
         setColor(color);
 
-        Utils.recreate(this);
+        recreate();
 
         Utils.sendColor(MainActivity.this, color);
 
