@@ -58,23 +58,41 @@ class Utils {
     }
 
     //method to change the toolbar's title color
-    private static void changeTitleColor(Toolbar toolbar, int color) {
+    private static void changeTitleColor(final Toolbar toolbar, final int color) {
 
-        toolbar.setTitleTextColor(color);
+        toolbar.post(new Runnable() {
+
+            @Override
+            public void run() {
+                toolbar.setTitleTextColor(color);
+
+            }
+        });
 
     }
 
     //method to change the toolbar's overflow icon
-    private static void changeOverflowIcon(Toolbar toolbar, Drawable icon) {
+    private static void changeOverflowIcon(final Toolbar toolbar, final Drawable icon) {
 
-        toolbar.setOverflowIcon(icon);
+        toolbar.post(new Runnable() {
 
+            @Override
+            public void run() {
+                toolbar.setOverflowIcon(icon);
+            }
+        });
     }
 
     //method to change the circular reveal view background
-    private static void changeBgColor(View view, int color) {
+    private static void changeBgColor(final View view, final int color) {
 
-        view.setBackground(new ColorDrawable(color));
+        view.post(new Runnable() {
+
+            @Override
+            public void run() {
+                view.setBackground(new ColorDrawable(color));
+            }
+        });
 
     }
 
@@ -116,32 +134,48 @@ class Utils {
     }
 
     //determine if solid color is light or dark to apply proper colors to toolbar and statusbar
-    static boolean isColorDark(Toolbar toolbar, View view, Activity activity, Context context, int color) {
+    static boolean isColorDark(final Toolbar toolbar, final View view, final Activity activity, final Context context, final int color) {
         double darkness = 1 - (0.299 * Color.red(color) + 0.587 * Color.green(color) + 0.114 * Color.blue(color)) / 255;
 
         if (darkness < 0.5) {
 
-            applyLightIcons(activity);
+            activity.runOnUiThread(new Runnable() {
 
-            activity.getWindow().setBackgroundDrawable(new ColorDrawable(Color.DKGRAY));
+                @Override
+                public void run() {
 
-            changeTitleColor(toolbar, ContextCompat.getColor(context, android.R.color.secondary_text_light));
+                    applyLightIcons(activity);
 
-            changeOverflowIcon(toolbar, ContextCompat.getDrawable(activity, R.drawable.ic_dots_dark));
+                    activity.getWindow().setBackgroundDrawable(new ColorDrawable(Color.DKGRAY));
 
-            changeBgColor(view, lighten(getComplementaryColor(color), 0.5));
+                    changeTitleColor(toolbar, ContextCompat.getColor(context, android.R.color.secondary_text_light));
+
+                    changeOverflowIcon(toolbar, ContextCompat.getDrawable(activity, R.drawable.ic_dots_dark));
+
+                    changeBgColor(view, lighten(getComplementaryColor(color), 0.5));
+                }
+            });
+
 
         } else {
 
-            changeTitleColor(toolbar, ContextCompat.getColor(context, android.R.color.white));
+            activity.runOnUiThread(new Runnable() {
 
-            changeOverflowIcon(toolbar, ContextCompat.getDrawable(activity, R.drawable.ic_dots));
+                @Override
+                public void run() {
+                    changeTitleColor(toolbar, ContextCompat.getColor(context, android.R.color.white));
 
-            activity.getWindow().setBackgroundDrawable(new ColorDrawable(Color.WHITE));
+                    changeOverflowIcon(toolbar, ContextCompat.getDrawable(activity, R.drawable.ic_dots));
 
-            changeBgColor(view, lighten(getComplementaryColor(color), 0.25));
+                    activity.getWindow().setBackgroundDrawable(new ColorDrawable(Color.WHITE));
+
+                    changeBgColor(view, lighten(getComplementaryColor(color), 0.25));
+                }
+            });
+
         }
         return true;
+
     }
 
     //show about dialog

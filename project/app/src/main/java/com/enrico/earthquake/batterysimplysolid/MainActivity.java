@@ -113,13 +113,20 @@ public class MainActivity extends AppCompatActivity implements ColorChooserDialo
             }
         });
 
-        //set blink animation to imageView
-        animBlink = AnimationUtils.loadAnimation(getApplicationContext(),
-                R.anim.blink);
-
         imageView = (ImageView) findViewById(R.id.imageView);
 
-        imageView.startAnimation(animBlink);
+        imageView.post(new Runnable() {
+            @Override
+            public void run() {
+
+                //set blink animation to imageView
+                animBlink = AnimationUtils.loadAnimation(getApplicationContext(),
+                        R.anim.blink);
+
+                imageView.startAnimation(animBlink);
+
+            }
+        });
 
     }
 
@@ -138,7 +145,7 @@ public class MainActivity extends AppCompatActivity implements ColorChooserDialo
     }
 
     //change view colors
-    private void setColor(int color) {
+    private void setColor(final int color) {
 
         fab = (FloatingActionButton) findViewById(R.id.fab);
 
@@ -148,17 +155,26 @@ public class MainActivity extends AppCompatActivity implements ColorChooserDialo
 
         batteryTop = findViewById(R.id.battery_top);
 
-        if (getSupportActionBar() != null) {
-            getSupportActionBar().setBackgroundDrawable(new ColorDrawable(color));
-        }
-        getWindow().setStatusBarColor(CircleView.shiftColorDown(color));
-        getWindow().setNavigationBarColor(color);
+        MainActivity.this.runOnUiThread(new Runnable() {
 
-        batteryPerc.setBackgroundColor(color);
-        batteryCompl.setBackgroundColor(Utils.getComplementaryColor(color));
-        batteryTop.setBackgroundColor(Utils.getComplementaryColor(color));
-        fab.setColorFilter(Utils.getComplementaryColor(color));
-        fab.setBackgroundTintList(ColorStateList.valueOf(color));
+            @Override
+            public void run() {
+
+                if (getSupportActionBar() != null) {
+                    getSupportActionBar().setBackgroundDrawable(new ColorDrawable(color));
+                }
+                getWindow().setStatusBarColor(CircleView.shiftColorDown(color));
+                getWindow().setNavigationBarColor(color);
+
+                batteryPerc.setBackgroundColor(color);
+                batteryCompl.setBackgroundColor(Utils.getComplementaryColor(color));
+                batteryTop.setBackgroundColor(Utils.getComplementaryColor(color));
+                fab.setColorFilter(Utils.getComplementaryColor(color));
+                fab.setBackgroundTintList(ColorStateList.valueOf(color));
+
+            }
+        });
+
     }
 
     //change colors on app resume
@@ -168,7 +184,8 @@ public class MainActivity extends AppCompatActivity implements ColorChooserDialo
 
         final View shape = findViewById(R.id.circle);
 
-        Utils.isColorDark(toolbar, shape, this, getBaseContext(), Utils.retrieveColor(getBaseContext(), this));
+        //apply light or dark shits
+        Utils.isColorDark(toolbar, shape, MainActivity.this, getBaseContext(), Utils.retrieveColor(getBaseContext(), MainActivity.this));
 
         //set circular reveal animation
         shape.post(new Runnable() {
