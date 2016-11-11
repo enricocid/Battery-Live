@@ -24,4 +24,6 @@
     <string name="default_mode">Custom</string>
     <string name="mode">Livewallpaper modes</string>
     <string name="mode_summary">Choose the Live Wallpaper mode</string>
+    <string name="build_number">Build\'s version</string>
+
 </resources>

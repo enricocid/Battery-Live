@@ -18,4 +18,9 @@
         android:summary="@string/mode_summary"
         android:title="@string/mode" />
 
+    <!-- Build number -->
+    <android.support.v7.preference.Preference
+        android:key="build_number"
+        android:title="@string/build_number" />
+
 </android.support.v7.preference.PreferenceScreen>

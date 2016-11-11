@@ -22,4 +22,6 @@
     <string name="default_mode">Personalizzata</string>
     <string name="mode">Modalità Live Wallpaper</string>
     <string name="mode_summary">Scegli la modalita del Live Wallpaper</string>
+    <string name="build_number">Versione build</string>
+
 </resources>
