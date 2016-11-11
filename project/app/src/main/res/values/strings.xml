@@ -14,4 +14,14 @@
         <a href=\'https://plus.google.com/u/0/+EnricoDortenzio/posts\'>Google+</a>&nbsp;&nbsp;
         <a href=\'https://github.com/enricocid\'>GitHub</a>
         ]]></string>
+
+    <string name="settings">Options</string>
+    <string name="general_category">General</string>
+
+    <string name="pref_mode" translatable="false">pref_mode</string>
+    <string name="day_mode">hour of day colors</string>
+    <string name="battery_mode">Battery colors</string>
+    <string name="default_mode">Custom</string>
+    <string name="mode">Livewallpaper modes</string>
+    <string name="mode_summary">Choose the Live Wallpaper mode</string>
 </resources>

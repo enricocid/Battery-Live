@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- This is the layout for Info Activity -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <include layout="@layout/toolbar" />
+
+    <fragment
+        android:name="com.enrico.earthquake.batterysimplysolid.MoreSettings.SettingsFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:tag="com.enrico.earthquake.batterysimplysolid.MoreSettings.SettingsFragment" />
+
+</LinearLayout>

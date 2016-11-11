@@ -1,17 +1,14 @@
 package com.enrico.earthquake.batterysimplysolid;
 
-import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.os.BatteryManager;
 import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.service.wallpaper.WallpaperService;
 import android.support.v4.content.ContextCompat;
-import android.util.DisplayMetrics;
 import android.view.SurfaceHolder;
-import android.view.WindowManager;
+
+import com.enrico.earthquake.batterysimplysolid.MoreSettings.Preferences;
 
 
 public class LiveWallpaper extends WallpaperService {
@@ -36,9 +33,6 @@ public class LiveWallpaper extends WallpaperService {
     private class MyWallpaperEngine extends Engine {
 
         private final Handler handler = new Handler();
-        int result;
-        int height;
-        private int width;
         private boolean visible = true;
         private final Runnable drawRunner = new Runnable() {
             @Override
@@ -79,7 +73,7 @@ public class LiveWallpaper extends WallpaperService {
             handler.removeCallbacks(drawRunner);
         }
 
-        //draw shit according to battery levels
+        //draw shit according to battery levels and preferences
         private void draw() {
 
             SurfaceHolder holder = getSurfaceHolder();
@@ -88,32 +82,9 @@ public class LiveWallpaper extends WallpaperService {
                 c = holder.lockCanvas();
                 if (c != null) {
 
-                    WindowManager window = (WindowManager) getSystemService(Context.WINDOW_SERVICE);
+                    //set colors from preferences
+                    Preferences.resolveMode(getBaseContext(), c, color);
 
-                    //retrieve display specifications
-                    DisplayMetrics d = new DisplayMetrics();
-                    window.getDefaultDisplay().getMetrics(d);
-
-                    width = d.widthPixels;
-                    height = d.heightPixels;
-                    Paint p = new Paint();
-                    Paint p2 = new Paint();
-
-                    //get battery level
-                    BatteryManager bm = (BatteryManager) getSystemService(BATTERY_SERVICE);
-                    int batLevel = bm.getIntProperty(BatteryManager.BATTERY_PROPERTY_CAPACITY);
-
-                    //do some proportions
-                    int battery_complementary = height - ((batLevel * height) / 100);
-
-                    p.setColor(Utils.getComplementaryColor(color));
-
-                    p2.setColor(color);
-
-                    //draw rectangles according to display height and battery level
-                    c.drawRect(0, 0, width, height, p2);
-
-                    c.drawRect(0, 0, width, battery_complementary, p);
                 }
             } finally {
                 if (c != null)

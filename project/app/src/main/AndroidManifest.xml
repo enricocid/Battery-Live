@@ -42,6 +42,12 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name="com.enrico.earthquake.batterysimplysolid.MoreSettings.SettingsActivity"
+            android:label="@string/settings"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme_iven" />
+
         <uses-library
             android:name="com.sec.android.app.multiwindow"
             android:required="false" />

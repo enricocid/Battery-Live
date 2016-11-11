@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+
+    <!-- Theme options-->
+    <string-array name="mode_options">
+        <item>@string/default_mode</item>
+        <item>@string/battery_mode</item>
+        <item>@string/day_mode</item>
+    </string-array>
+    <string-array name="mode_list_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+</resources>

@@ -8,4 +8,37 @@
     <color name="colorAccent">#FF4081</color>
     <color name="defaultBattery">#00BFA5</color>
     <color name="defaultBatteryComplementary">#FF405A</color>
+
+    <!-- Charge state colors-->
+    <color name="materialGreen">#388E3C</color>
+    <color name="materialLightGreen">#4CAF50</color>
+    <color name="materialLightestGreen">#8BC34A</color>
+    <color name="materialLightestYellow">#FFEB3B</color>
+    <color name="materialLightYellow">#FFEB3B</color>
+    <color name="materialYellow">#FFC107</color>
+    <color name="materialLightestOrange">#FF9800</color>
+    <color name="materialLightOrange">#F57C00</color>
+    <color name="materialOrange">#FF5722</color>
+    <color name="materialLightRed">#F44336</color>
+    <color name="materialRed">#D32F2F</color>
+
+    <!-- Day colors-->
+    <color name="sunrise">#FFA071</color>
+    <color name="sunriseLight">#FFE39C</color>
+
+    <color name="morning">#b5d6e0</color>
+    <color name="morningLight">#ffef7a</color>
+
+    <color name="zenit">#009BEC</color>
+    <color name="zenitLight">#F2C524</color>
+
+    <color name="noon">#63A2CC</color>
+    <color name="noonLight">#FFD325</color>
+
+    <color name="afternoon">#24438D</color>
+    <color name="afternoonLight">#FF5353</color>
+
+    <color name="night">#192D50</color>
+    <color name="nightLight">#BAC9C5</color>
+
 </resources>

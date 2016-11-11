@@ -23,6 +23,7 @@ import android.widget.ImageView;
 
 import com.afollestad.materialdialogs.color.CircleView;
 import com.afollestad.materialdialogs.color.ColorChooserDialog;
+import com.enrico.earthquake.batterysimplysolid.MoreSettings.SettingsActivity;
 
 
 public class MainActivity extends AppCompatActivity implements ColorChooserDialog.ColorCallback {
@@ -87,7 +88,7 @@ public class MainActivity extends AppCompatActivity implements ColorChooserDialo
                         //share button using share intent
                         switch (mItemId) {
 
-                            //rate button
+                            //about button
                             case R.id.about:
 
                                 //show about dialog
@@ -95,11 +96,20 @@ public class MainActivity extends AppCompatActivity implements ColorChooserDialo
 
                                 break;
 
+                            //settings button
+                            case R.id.option:
+
+                                //open Settings Activity
+                                Intent ii = new Intent(MainActivity.this, SettingsActivity.class);
+                                startActivity(ii);
+
+                                break;
                         }
 
                         return false;
                     }
                 });
+
 
         //open color chooser by clicking the fab button
         fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -112,6 +122,7 @@ public class MainActivity extends AppCompatActivity implements ColorChooserDialo
 
             }
         });
+
 
         imageView = (ImageView) findViewById(R.id.imageView);
 
@@ -235,7 +246,6 @@ public class MainActivity extends AppCompatActivity implements ColorChooserDialo
         recreate();
 
         Utils.sendColor(MainActivity.this, color);
-
 
     }
 

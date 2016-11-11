@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- Preferences -->
+
+<android.support.v7.preference.PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/preference_screen"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v7.preference.PreferenceCategory android:title="@string/general_category" />
+
+    <!-- LiveWallpaper Modes -->
+    <android.support.v7.preference.ListPreference
+        android:defaultValue="0"
+        android:entries="@array/mode_options"
+        android:entryValues="@array/mode_list_values"
+        android:key="@string/pref_mode"
+        android:summary="@string/mode_summary"
+        android:title="@string/mode" />
+
+</android.support.v7.preference.PreferenceScreen>

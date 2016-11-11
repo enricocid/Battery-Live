@@ -15,5 +15,11 @@
         ]]></string>
     <string name="md_done_label">Fatto</string>
     <string name="md_cancel_label">Cancella</string>
-
+    <string name="settings">Opzioni</string>
+    <string name="general_category">Generali</string>
+    <string name="day_mode">Ore del giorno</string>
+    <string name="battery_mode">Colori batteria</string>
+    <string name="default_mode">Personalizzata</string>
+    <string name="mode">Modalità Live Wallpaper</string>
+    <string name="mode_summary">Scegli la modalita del Live Wallpaper</string>
 </resources>

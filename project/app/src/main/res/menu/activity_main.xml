@@ -11,4 +11,11 @@
         android:orderInCategory="200"
         android:title="@string/about"
         app:showAsAction="never" />
+
+    <item
+        android:id="@+id/option"
+        android:orderInCategory="200"
+        android:title="@string/settings"
+        app:showAsAction="never" />
+
 </menu>

@@ -13,10 +13,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
-class Utils {
+public class Utils {
 
     //function to invert color value
-    static int getComplementaryColor(int colorToInvert) {
+    public static int getComplementaryColor(int colorToInvert) {
 
         float r = Color.red(colorToInvert);
         float g = Color.green(colorToInvert);
