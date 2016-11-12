@@ -2,7 +2,7 @@
 
 <resources>
 
-    <!-- Theme options-->
+    <!-- LiveWallpaper mode options-->
     <string-array name="mode_options">
         <item>@string/default_mode</item>
         <item>@string/battery_mode</item>
@@ -12,5 +12,22 @@
         <item>0</item>
         <item>1</item>
         <item>2</item>
+    </string-array>
+
+    <!-- Theme options-->
+    <string-array name="typeface_options">
+        <item>@string/normal</item>
+        <item>@string/normal_bold</item>
+        <item>@string/monospace</item>
+        <item>@string/sansserif</item>
+        <item>@string/serif</item>
+
+    </string-array>
+    <string-array name="typeface_list_values">
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
     </string-array>
 </resources>

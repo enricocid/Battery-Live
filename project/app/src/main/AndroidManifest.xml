@@ -15,9 +15,10 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/Theme_iven">
+        android:theme="@style/AppTheme">
 
         <service
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
             android:name=".LiveWallpaper"
             android:label="@string/app_name"
             android:permission="android.permission.BIND_WALLPAPER">
@@ -42,11 +43,11 @@
             </intent-filter>
         </activity>
 
+
         <activity
-            android:name="com.enrico.earthquake.batterysimplysolid.MoreSettings.SettingsActivity"
+            android:name="com.enrico.earthquake.batterysimplysolid.PreferenceActivity"
             android:label="@string/settings"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme_iven" />
+            android:screenOrientation="portrait" />
 
         <uses-library
             android:name="com.sec.android.app.multiwindow"

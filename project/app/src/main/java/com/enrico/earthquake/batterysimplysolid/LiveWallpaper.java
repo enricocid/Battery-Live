@@ -1,14 +1,17 @@
 package com.enrico.earthquake.batterysimplysolid;
 
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.os.BatteryManager;
 import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.service.wallpaper.WallpaperService;
 import android.support.v4.content.ContextCompat;
 import android.view.SurfaceHolder;
 
-import com.enrico.earthquake.batterysimplysolid.MoreSettings.Preferences;
+import com.enrico.earthquake.batterysimplysolid.Preferences;
 
 
 public class LiveWallpaper extends WallpaperService {
@@ -16,10 +19,21 @@ public class LiveWallpaper extends WallpaperService {
     int color;
     SharedPreferences prefs;
 
+    SharedPreferences prefs2;
+
+    int batterycolor;
+
     //the livewallpaper service and engine
 
     @Override
     public Engine onCreateEngine() {
+
+        prefs2 = this.getSharedPreferences("OtherPrefs", Context.MODE_PRIVATE);
+
+
+        String value2 = prefs2.getString("batterycolor", Integer.toString(ContextCompat.getColor(getApplicationContext(), R.color.defaultBatteryComplementary)));
+
+        batterycolor = Integer.parseInt(value2);
 
         //retrieve set color
         prefs = PreferenceManager.getDefaultSharedPreferences(this);
@@ -46,6 +60,7 @@ public class LiveWallpaper extends WallpaperService {
         public void onVisibilityChanged(boolean visible) {
             this.visible = visible;
             if (visible) {
+
                 draw();
             } else {
                 handler.removeCallbacks(drawRunner);
@@ -84,7 +99,14 @@ public class LiveWallpaper extends WallpaperService {
 
                     //set colors from preferences
                     Preferences.resolveMode(getBaseContext(), c, color);
+                    Paint p = new Paint();
 
+                    //get battery level
+                    BatteryManager bm = (BatteryManager) getBaseContext().getSystemService(BATTERY_SERVICE);
+                    int batLevel = bm.getIntProperty(BatteryManager.BATTERY_PROPERTY_CAPACITY);
+
+                    if (Preferences.batteryText(getBaseContext()))
+                        Preferences.drawText(getBaseContext(), c, p, Integer.toString(batLevel), batterycolor);
                 }
             } finally {
                 if (c != null)

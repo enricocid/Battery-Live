@@ -2,15 +2,13 @@
 
 <!-- Preferences -->
 
-<android.support.v7.preference.PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/preference_screen"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/preference_screen">
 
-    <android.support.v7.preference.PreferenceCategory android:title="@string/general_category" />
+    <PreferenceCategory android:title="@string/general_category" />
 
     <!-- LiveWallpaper Modes -->
-    <android.support.v7.preference.ListPreference
+    <ListPreference
         android:defaultValue="0"
         android:entries="@array/mode_options"
         android:entryValues="@array/mode_list_values"
@@ -18,9 +16,39 @@
         android:summary="@string/mode_summary"
         android:title="@string/mode" />
 
+    <!-- Add battery text -->
+    <SwitchPreference
+        android:defaultValue="false"
+        android:key="batteryText"
+        android:summary="@string/battery_text_summary"
+        android:title="@string/battery_text" />
+
+    <!-- Typeface-->
+    <ListPreference
+        android:defaultValue="3"
+        android:entries="@array/typeface_options"
+        android:entryValues="@array/typeface_list_values"
+        android:key="@string/pref_typeface"
+        android:summary="@string/typeface_summary"
+        android:title="@string/typeface" />
+
+    <!-- Text size-->
+    <EditTextPreference
+        android:key="sizeTxt"
+        android:inputType="number"
+        android:title="@string/txt_size"
+        android:summary="@string/txt_size_summary"/>
+
+    <!-- Text color -->
+    <Preference
+        android:key="color"
+        android:title="@string/color"
+        android:summary="@string/color_summary"/>
+
     <!-- Build number -->
-    <android.support.v7.preference.Preference
+    <Preference
         android:key="build_number"
         android:title="@string/build_number" />
 
-</android.support.v7.preference.PreferenceScreen>
+
+</PreferenceScreen>

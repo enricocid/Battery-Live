@@ -18,6 +18,7 @@
     <string name="settings">Options</string>
     <string name="general_category">General</string>
 
+    <!-- live wallpaper modes -->
     <string name="pref_mode" translatable="false">pref_mode</string>
     <string name="day_mode">hour of day colors</string>
     <string name="battery_mode">Battery colors</string>
@@ -25,5 +26,25 @@
     <string name="mode">Livewallpaper modes</string>
     <string name="mode_summary">Choose the Live Wallpaper mode</string>
     <string name="build_number">Build\'s version</string>
+
+    <!-- battery percentage options -->
+    <string name="battery_text">Enable battery percent</string>
+    <string name="battery_text_summary">Show battery percent at the middle of the screen</string>
+
+    <string name="typeface">Change typeface</string>
+    <string name="typeface_summary">Change battery percentage typeface font</string>
+
+    <string name="pref_typeface" translatable="false">pref_typeface</string>
+    <string name="serif" translatable="false">Serif</string>
+    <string name="sansserif" translatable="false">Sans serif</string>
+    <string name="monospace" translatable="false">Monospace</string>
+    <string name="normal_bold" translatable="false">Normal bold</string>
+    <string name="normal" translatable="false">Normal</string>
+
+    <string name="txt_size">Change size</string>
+    <string name="txt_size_summary">Change battery percentage size</string>
+
+    <string name="color">Change color</string>
+    <string name="color_summary">Change battery percentage color</string>
 
 </resources>

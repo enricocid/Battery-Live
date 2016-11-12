@@ -23,7 +23,7 @@ import android.widget.ImageView;
 
 import com.afollestad.materialdialogs.color.CircleView;
 import com.afollestad.materialdialogs.color.ColorChooserDialog;
-import com.enrico.earthquake.batterysimplysolid.MoreSettings.SettingsActivity;
+import com.enrico.earthquake.batterysimplysolid.PreferenceActivity;
 
 
 public class MainActivity extends AppCompatActivity implements ColorChooserDialog.ColorCallback {
@@ -100,7 +100,7 @@ public class MainActivity extends AppCompatActivity implements ColorChooserDialo
                             case R.id.option:
 
                                 //open Settings Activity
-                                Intent ii = new Intent(MainActivity.this, SettingsActivity.class);
+                                Intent ii = new Intent(MainActivity.this, PreferenceActivity.class);
                                 startActivity(ii);
 
                                 break;

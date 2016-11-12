@@ -1,8 +1,12 @@
-package com.enrico.earthquake.batterysimplysolid.MoreSettings;
+package com.enrico.earthquake.batterysimplysolid;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Canvas;
 import android.graphics.Paint;
+import android.graphics.Rect;
+import android.graphics.Typeface;
 import android.os.BatteryManager;
 import android.preference.PreferenceManager;
 import android.support.v4.content.ContextCompat;
@@ -17,6 +21,76 @@ import java.util.Calendar;
 import static android.content.Context.BATTERY_SERVICE;
 
 public class Preferences {
+
+    //draw text
+
+    //method to save battery percent color
+    static void sendBatteryColor(Activity activity, Integer color) {
+
+        SharedPreferences prefs2;
+
+        prefs2 = activity.getSharedPreferences("OtherPrefs", Context.MODE_PRIVATE);
+
+        prefs2.edit()
+                .clear()
+                .apply();
+
+        prefs2.edit()
+                .putString("batterycolor", Integer.toString(color))
+                .apply();
+    }
+
+    //preference for the batteryText
+    public static boolean batteryText(Context context) {
+        return PreferenceManager.getDefaultSharedPreferences(context)
+                .getBoolean("batteryText", false);
+    }
+
+    public static void drawText(Context context, Canvas canvas, Paint paint, String text, int color) {
+        final Rect textBounds = new Rect(); //don't new this up in a draw method
+
+        paint.getTextBounds(text, 0, text.length(), textBounds);
+
+        int width = textBounds.width();
+
+        paint.setTypeface(resolveTypeface(context));
+        paint.setAntiAlias(true);
+        paint.setElegantTextHeight(true);
+        paint.setTextSize(Integer.parseInt(textSize(context)) * 10);
+        paint.setTextAlign(Paint.Align.CENTER);
+        paint.getTextBounds(text, 0, text.length(), textBounds);
+        paint.setColor(color);
+
+        canvas.drawText(text, (canvas.getWidth() - width) / 2, (canvas.getHeight() - paint.ascent()) / 2, paint);
+
+    }
+
+    //preference for the batteryText
+    private static String textSize(Context context) {
+
+        return PreferenceManager.getDefaultSharedPreferences(context)
+                .getString("sizeTxt", "20");
+    }
+
+    //multi-preference dialog for articles text size
+    private static Typeface resolveTypeface(Context context) {
+
+        String choice = PreferenceManager.getDefaultSharedPreferences(context)
+                .getString(context.getString(R.string.pref_typeface), String.valueOf(3));
+        switch (Integer.parseInt(choice)) {
+            case 3:
+                return Typeface.DEFAULT;
+            case 4:
+            default:
+                return Typeface.DEFAULT_BOLD;
+            case 5:
+                return Typeface.MONOSPACE;
+            case 6:
+                return Typeface.SANS_SERIF;
+            case 7:
+                return Typeface.SERIF;
+        }
+    }
 
     //time-context colors
     private static void dayModes(Context context, Paint p, Paint p2) {
