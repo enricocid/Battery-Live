@@ -54,7 +54,7 @@ public class Preferences {
         }
 
         //night
-        if (hour >= 21) {
+        if (hour >= 21 || hour < 6) {
             p.setColor(ContextCompat.getColor(context, R.color.nightLight));
             p2.setColor(ContextCompat.getColor(context, R.color.night));
         }
