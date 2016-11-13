@@ -3,23 +3,13 @@ package com.enrico.earthquake.batterysimplysolid;
 import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.graphics.drawable.Drawable;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
+import com.afollestad.materialdialogs.color.CircleView;
+
 class Utils {
-
-    //method to change the toolbar's navigation icon
-    static void changeNavigationIcon(final Toolbar toolbar, final Drawable icon) {
-
-        toolbar.post(new Runnable() {
-
-            @Override
-            public void run() {
-                toolbar.setNavigationIcon(icon);
-            }
-        });
-    }
 
     //method to save charge color to SharedPreferences
     static void sendChargeColor(Activity activity, Integer color) {
@@ -67,6 +57,52 @@ class Utils {
         prefs3.edit()
                 .putString("batteryColor", Integer.toString(color))
                 .apply();
+    }
+
+    //method to save toolbar color to SharedPreferences
+    static void sendToolbarColor(Activity activity, Integer color) {
+
+        SharedPreferences prefs4;
+
+        prefs4 = activity.getSharedPreferences("toolbarColor", Context.MODE_PRIVATE);
+
+        prefs4.edit()
+                .clear()
+                .apply();
+
+        prefs4.edit()
+                .putString("niceColor", Integer.toString(color))
+                .apply();
+    }
+
+    //method to restore toolbar color
+    static void restoreToolbarColor(Activity activity, Toolbar toolbar) {
+
+
+        //retrieve toolbar color
+        SharedPreferences prefs4 = activity.getSharedPreferences("toolbarColor", Context.MODE_PRIVATE);
+
+        String color1 = prefs4.getString("niceColor", Integer.toString(ContextCompat.getColor(activity, R.color.colorPrimaryDark)));
+
+        int color = Integer.parseInt(color1);
+
+        changeToolbarColor(activity, toolbar, color);
+    }
+
+    //method to change toolbar color
+    static void changeToolbarColor(final Activity activity, final Toolbar toolbar, final Integer color) {
+
+        activity.runOnUiThread(new Runnable() {
+
+            @Override
+            public void run() {
+
+                toolbar.setBackgroundColor(color);
+
+                activity.getWindow().setStatusBarColor(CircleView.shiftColorDown(color));
+            }
+
+        });
     }
 
     //show about dialog

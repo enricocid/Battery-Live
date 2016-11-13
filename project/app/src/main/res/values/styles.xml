@@ -8,14 +8,65 @@
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:windowNoTitle">true</item>
         <item name="windowActionBar">false</item>
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorAccent">?attr/customAccent</item>
+        <item name="colorPrimary">?attr/primaryAccent</item>
+        <item name="colorPrimaryDark">?attr/secondaryAccent</item>
         <item name="android:listSeparatorTextViewStyle">@style/ListSeparatorTextView</item>
         <item name="toolbarStyle">@style/Custom.Widget.Toolbar</item>
         <item name="toolbarNavigationButtonStyle">@style/Custom.Widget.Toolbar.Button.Navigation
         </item>
         <item name="actionOverflowButtonStyle">@style/Custom.Widget.ActionButton.Overflow</item>
+        <item name="android:homeAsUpIndicator">?attr/close_icon</item>
+        <item name="theme_background">@android:color/white</item>
+        <item name="close_icon">@drawable/ic_close</item>
+        <item name="info_icon">@drawable/ic_information</item>
+        <item name="customAccent">@color/backgroundDark</item>
+        <item name="primaryAccent">@color/backgroundDark</item>
+        <item name="secondaryAccent">@color/backgroundDark</item>
+
+    </style>
+
+    <!-- theme dark for main activity -->
+    <style name="AppThemeDark" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="colorAccent">?attr/customAccent</item>
+        <item name="colorPrimary">?attr/primaryAccent</item>
+        <item name="colorPrimaryDark">?attr/secondaryAccent</item>
+        <item name="android:listSeparatorTextViewStyle">@style/ListSeparatorTextView</item>
+        <item name="toolbarStyle">@style/Custom.Widget.Toolbar</item>
+        <item name="toolbarNavigationButtonStyle">@style/Custom.Widget.Toolbar.Button.Navigation
+        </item>
+        <item name="actionOverflowButtonStyle">@style/Custom.Widget.ActionButton.Overflow</item>
+        <item name="android:homeAsUpIndicator">?attr/close_icon</item>
+        <item name="close_icon">@drawable/ic_close_dark</item>
+        <item name="info_icon">@drawable/ic_information_dark</item>
+        <item name="theme_background">@color/backgroundDark</item>
+        <item name="customAccent">@android:color/white</item>
+        <item name="primaryAccent">@android:color/white</item>
+        <item name="secondaryAccent">@android:color/white</item>
+
+    </style>
+
+    <!-- theme darker for main activity -->
+    <style name="AppThemeDarker" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="colorAccent">?attr/customAccent</item>
+        <item name="colorPrimary">?attr/primaryAccent</item>
+        <item name="colorPrimaryDark">?attr/secondaryAccent</item>
+        <item name="android:listSeparatorTextViewStyle">@style/ListSeparatorTextView</item>
+        <item name="toolbarStyle">@style/Custom.Widget.Toolbar</item>
+        <item name="toolbarNavigationButtonStyle">@style/Custom.Widget.Toolbar.Button.Navigation
+        </item>
+        <item name="actionOverflowButtonStyle">@style/Custom.Widget.ActionButton.Overflow</item>
+        <item name="android:homeAsUpIndicator">?attr/close_icon</item>
+        <item name="theme_background">@android:color/background_dark</item>
+        <item name="close_icon">@drawable/ic_close_dark</item>
+        <item name="info_icon">@drawable/ic_information_dark</item>
+        <item name="customAccent">@android:color/white</item>
+        <item name="primaryAccent">@android:color/white</item>
+        <item name="secondaryAccent">@android:color/white</item>
     </style>
 
     <!-- Preference category theme -->

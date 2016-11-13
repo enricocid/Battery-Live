@@ -12,13 +12,13 @@
         ]]></string>
 
     <string name="settings">Opzioni</string>
-    <string name="day_mode">Ore del giorno</string>
+    <string name="day_mode">Ora del giorno</string>
     <string name="battery_mode">Batteria</string>
     <string name="default_mode">Personalizzata</string>
     <string name="mode">Modalità Live Wallpaper</string>
     <string name="mode_summary">Scegli la modalita del live wallpaper</string>
-    <string name="charge">Cambia colore carica</string>
-    <string name="discharge">Cambia colore scarica</string>
+    <string name="charge">Colore carica</string>
+    <string name="discharge">Colore scarica</string>
     <string name="apply">Applica!</string>
     <string name="apply_summary">Clicca per applicare i cambiamenti!</string>
     <string name="build_number">Versione build</string>
@@ -29,5 +29,15 @@
     <string name="txt_size">Cambia dimensioni</string>
     <string name="txt_size_summary">Cambia le dimensioni percento batteria</string>
     <string name="color">Cambia colore</string>
+    <string name="pref_theme_title">Tema app</string>
+    <string name="themesum">Scegli il tuo tema preferito</string>
+    <string name="light_theme">Chiaro</string>
+    <string name="dark_theme">Scuro</string>
+    <string name="darkest_theme">Più scuro</string>
+    <string name="other">Altre</string>
+    <string name="toolbarColor">Cambia colore toolbar</string>
+    <string name="lightColor">Applica barra di stato chiara</string>
+    <string name="lightColor_summary">Dona un tono scuro alle icone della barra di stato</string>
+    <string name="message">Funzione non disponibile in Lollipop</string>
 
 </resources>

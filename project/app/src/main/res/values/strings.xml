@@ -14,7 +14,10 @@
         ]]></string>
 
     <string name="build_number">Build version</string>
+
+    <!-- Preference categories -->
     <string name="settings">Options</string>
+    <string name="other">Others</string>
 
     <!-- live wallpaper modes -->
     <string name="pref_mode" translatable="false">pref_mode</string>
@@ -25,8 +28,8 @@
     <string name="mode_summary">Choose the live wallpaper mode</string>
 
     <!-- default modes -->
-    <string name="charge">Change charge color</string>
-    <string name="discharge">Change discharge color</string>
+    <string name="charge">Charge color</string>
+    <string name="discharge">Discharge color</string>
     <string name="apply">Apply!</string>
     <string name="apply_summary">Click to apply the changes!</string>
 
@@ -43,10 +46,21 @@
     <string name="monospace" translatable="false">Monospace</string>
     <string name="normal_bold" translatable="false">Normal bold</string>
     <string name="normal" translatable="false">Normal</string>
-
     <string name="txt_size">Change size</string>
     <string name="txt_size_summary">Change battery percentage size</string>
-
     <string name="color">Change color</string>
+
+    <!-- Theme options -->
+    <string name="pref_theme_title">App theme</string>
+    <string name="themesum">Choose your preferred theme</string>
+    <string name="pref_theme" translatable="false">pref_theme</string>
+    <string name="pref_theme_list" translatable="false">pref_theme_list</string>
+    <string name="light_theme">Light</string>
+    <string name="dark_theme">Dark</string>
+    <string name="darkest_theme">Darker</string>
+    <string name="toolbarColor">Change toolbar color</string>
+    <string name="lightColor">Apply light status bar</string>
+    <string name="lightColor_summary">Apply a dark tone to status bar icon</string>
+    <string name="message">Feature not available in Lollipop</string>
 
 </resources>

@@ -20,7 +20,7 @@
     <!-- Charge color -->
     <com.pavelsikun.vintagechroma.ChromaPreference
         android:key="chargeColor"
-        android:title="@string/color"
+        android:title="@string/charge"
         app:chromaColorMode="RGB"
         app:chromaIndicatorMode="HEX"
         app:chromaInitialColor="@color/defaultBattery" />
@@ -28,7 +28,7 @@
     <!-- Discharge color -->
     <com.pavelsikun.vintagechroma.ChromaPreference
         android:key="dischargeColor"
-        android:title="@string/color"
+        android:title="@string/discharge"
         app:chromaColorMode="RGB"
         app:chromaIndicatorMode="HEX"
         app:chromaInitialColor="@color/defaultBatteryComplementary" />
@@ -69,6 +69,32 @@
         android:key="apply"
         android:summary="@string/apply_summary"
         android:title="@string/apply" />
+
+    <PreferenceCategory android:title="@string/other" />
+
+    <!-- Theme -->
+    <ListPreference
+        android:defaultValue="8"
+        android:entries="@array/theme_options"
+        android:entryValues="@array/pref_theme_list_values"
+        android:key="@string/pref_theme"
+        android:summary="@string/themesum"
+        android:title="@string/pref_theme_title" />
+
+    <!-- Toolbar color -->
+    <com.pavelsikun.vintagechroma.ChromaPreference
+        android:key="toolbarColor"
+        android:title="@string/toolbarColor"
+        app:chromaColorMode="RGB"
+        app:chromaIndicatorMode="HEX"
+        app:chromaInitialColor="@color/colorPrimary" />
+
+    <!-- Light colored status bar -->
+    <SwitchPreference
+        android:defaultValue="false"
+        android:key="lightColored"
+        android:summary="@string/lightColor_summary"
+        android:title="@string/lightColor" />
 
     <!-- Build number -->
     <Preference

@@ -3,17 +3,23 @@
 
 ![ScreenShot](https://raw.githubusercontent.com/enricocid/Battery-Live/master/art/solid.png)
 
-![ScreenShot](https://raw.githubusercontent.com/enricocid/Battery-Live/master/art/Battery_gif.gif)
-
-Battery Live is a simple app to apply a livewallpaper based on battery level.
-It has a color chooser dialog where user can choose the color of the charge from presets or from custom hex code. The color of the discharge level is the complementary color of the applied color.
-There's are also some UI animations and a function to determine if the applied color is light or not used to change the toolbar/status bar color to dark or light.
+Battery Live is a simple app to apply a live wallpaper. 
 The app supports 5.0+ devices.
 
-![ScreenShot](https://raw.githubusercontent.com/enricocid/Battery-Live/master/art/screens.png)
+**Features:**
+
+- Simple UI;
+- Responsive toolbar;
+- Different live wallpaper modes (Custom ,battery, hour of the day);
+- Options to customize live wallpapers;
+- App theming;
 
 
-You can download the latest (1.0.0) signed APK from this repo here: https://github.com/enricocid/Battery-Live/raw/master/project/app/app-release.apk
+
+![ScreenShot](https://raw.githubusercontent.com/enricocid/Battery-Live/master/art/screens2.png)
+
+
+You can download the latest (2.0.0) signed APK from this repo here: https://github.com/enricocid/Battery-Live/raw/master/project/app/app-release.apk
 
 
 The app is available on:
@@ -30,9 +36,6 @@ F-Droid
   <img alt="Get it on F-Droid"       src="https://raw.githubusercontent.com/enricocid/Storage-USB/master/art/fdroid.png" />
 </a>
 
-**For more material colors please have a look here:**
-
-https://www.materialpalette.com/
 
 
 
@@ -46,11 +49,31 @@ Git page:
 https://github.com/ivn888
 
 
+**- materialpalette.com**
+
+Page:
+https://www.materialpalette.com/
+
+
+**- VintageChroma by Pavel Sikun**
+@MrBIMC
+
+Git page:
+https://github.com/MrBIMC/VintageChroma
+
+
 **- material-dialogs commons by Aidan Follestad**
 @afollestad
 
 Git page:
 https://github.com/afollestad/material-dialogs
+
+
+**- Responsive toolbar by Lucas Urbas**
+@@lurbas
+
+Page:
+https://medium.com/@lucasurbas/making-android-toolbar-responsive-2627d4e07129
 
 
 

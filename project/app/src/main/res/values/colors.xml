@@ -3,9 +3,8 @@
 <!-- colors-->
 
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorPrimary">#FFC107</color>
+    <color name="colorPrimaryDark">#FFA000</color>
     <color name="defaultBattery">#607D8B</color>
     <color name="defaultBatteryComplementary">#795548</color>
 
@@ -40,5 +39,8 @@
 
     <color name="night">#192D50</color>
     <color name="nightLight">#BAC9C5</color>
+
+    <!-- Theme colors -->
+    <color name="backgroundDark">#313232</color>
 
 </resources>

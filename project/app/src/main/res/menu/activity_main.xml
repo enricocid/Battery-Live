@@ -8,7 +8,7 @@
     <!-- about -->
     <item
         android:id="@+id/about"
-        android:icon="@drawable/ic_information"
+        android:icon="?attr/info_icon"
         android:orderInCategory="200"
         android:title="@string/about"
         app:showAsAction="ifRoom" />

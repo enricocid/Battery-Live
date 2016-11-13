@@ -2,7 +2,7 @@
 
 <resources>
 
-    <!-- LiveWallpaper mode options-->
+    <!-- Live Wallpaper mode options-->
     <string-array name="mode_options">
         <item>@string/default_mode</item>
         <item>@string/battery_mode</item>
@@ -14,7 +14,7 @@
         <item>2</item>
     </string-array>
 
-    <!-- Theme options-->
+    <!-- Typeface options-->
     <string-array name="typeface_options">
         <item>@string/normal</item>
         <item>@string/normal_bold</item>
@@ -29,5 +29,17 @@
         <item>5</item>
         <item>6</item>
         <item>7</item>
+    </string-array>
+
+    <!-- Theme options-->
+    <string-array name="theme_options">
+        <item>@string/light_theme</item>
+        <item>@string/dark_theme</item>
+        <item>@string/darkest_theme</item>
+    </string-array>
+    <string-array name="pref_theme_list_values">
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
     </string-array>
 </resources>
