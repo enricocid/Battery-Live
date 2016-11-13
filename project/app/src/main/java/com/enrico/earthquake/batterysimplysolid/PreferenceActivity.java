@@ -4,25 +4,22 @@ import android.annotation.SuppressLint;
 import android.app.WallpaperManager;
 import android.content.ComponentName;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceScreen;
 import android.support.annotation.ColorInt;
-import android.support.annotation.NonNull;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 
-import com.afollestad.materialdialogs.color.ColorChooserDialog;
-import com.enrico.earthquake.batterysimplysolid.BuildConfig;
-import com.enrico.earthquake.batterysimplysolid.LiveWallpaper;
-import com.enrico.earthquake.batterysimplysolid.R;
+import com.pavelsikun.vintagechroma.ChromaPreference;
+import com.pavelsikun.vintagechroma.OnColorSelectedListener;
 
 @SuppressLint("NewApi")
-public class PreferenceActivity extends AppCompatActivity implements ColorChooserDialog.ColorCallback {
+public class PreferenceActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,31 +35,49 @@ public class PreferenceActivity extends AppCompatActivity implements ColorChoose
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
 
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onBackPressed();
-                overridePendingTransition(0, 0);
-            }
-        });
+        //set the menu's toolbar click listener
+        toolbar.setOnMenuItemClickListener(
+                new Toolbar.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem item) {
+
+                        final int mItemId = item.getItemId();
+
+                        switch (mItemId) {
+
+                            //about button
+                            case R.id.about:
+
+                                //show about dialog
+                                Utils.showAbout(PreferenceActivity.this);
+
+                                break;
+                        }
+
+                        return false;
+                    }
+                });
+
+        //change toolbar navigation icon and title
+        Utils.changeNavigationIcon(toolbar, ContextCompat.getDrawable(this, R.drawable.ic_close));
 
         if (getFragmentManager().findFragmentById(R.id.content_frame) == null) {
             getFragmentManager().beginTransaction().replace(R.id.content_frame, new SettingsFragment()).commit();
         }
+
     }
 
-    public void openColorChooser() {
-        new ColorChooserDialog.Builder(PreferenceActivity.this, R.string.color_palette)
-                .allowUserColorInputAlpha(false)
-                .titleSub(R.string.colors)
-                .accentMode(true)
-                .doneButton(R.string.md_done_label)
-                .cancelButton(R.string.md_cancel_label)
-                .backButton(R.string.md_back_label)
-                .dynamicButtonColor(true)
-                .show();
+    //create the toolbar's menu
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        getMenuInflater().inflate(R.menu.activity_main, menu);
+
+        return super.onCreateOptionsMenu(menu);
+
     }
 
+    //provide back navigation
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == android.R.id.home) {
@@ -72,59 +87,72 @@ public class PreferenceActivity extends AppCompatActivity implements ColorChoose
         return super.onOptionsItemSelected(item);
     }
 
-    //do shit on color selected
-    @Override
-    public void onColorSelection(@NonNull ColorChooserDialog dialog, @ColorInt int color) {
-
-        Preferences.sendBatteryColor(PreferenceActivity.this, color);
-
-        //apply wallpaper
-        Intent intent = new Intent(
-                WallpaperManager.ACTION_CHANGE_LIVE_WALLPAPER);
-
-        intent.putExtra(WallpaperManager.EXTRA_LIVE_WALLPAPER_COMPONENT,
-                new ComponentName(PreferenceActivity.this, LiveWallpaper.class));
-
-        startActivity(intent);
-    }
-
     public static class SettingsFragment extends PreferenceFragment {
-
-        private SharedPreferences.OnSharedPreferenceChangeListener mListenerOptions;
 
         @Override
         public void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             addPreferencesFromResource(R.xml.info_pref);
 
-            //initialize version from BuildConfig
-            String version = BuildConfig.VERSION_NAME;
+            //get preference screen
+            final PreferenceScreen screen = getPreferenceScreen();
 
-            //get the version preference
-            Preference preferenceversion = findPreference("build_number");
+            //get charge color preference
+            final ChromaPreference chargePreference = (ChromaPreference) findPreference("chargeColor");
 
-            //dynamically set app's version
-            preferenceversion.setSummary(version);
+            //on click save the selected color to SharedPreferences
+            chargePreference.setOnColorSelectedListener(new OnColorSelectedListener() {
+                @Override
+                public void onColorSelected(@ColorInt int color) {
 
-            //grey out version preference
-            preferenceversion.setEnabled(false);
+                    Utils.sendChargeColor(getActivity(), color);
 
-            //get the color preference
-            final Preference colorPreference = findPreference("color");
+                }
+            });
 
-            colorPreference.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+            //get discharge color preference
+            final ChromaPreference dischargePreference = (ChromaPreference) findPreference("dischargeColor");
+
+            //on click save the selected color to SharedPreferences
+            dischargePreference.setOnColorSelectedListener(new OnColorSelectedListener() {
+                @Override
+                public void onColorSelected(@ColorInt int color) {
+
+                    Utils.sendDischargeColor(getActivity(), color);
+
+                }
+            });
+
+            //get apply preference
+            final Preference apply = findPreference("apply");
+
+            //open Live Wallpaper chooser
+            apply.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
                 @Override
                 public boolean onPreferenceClick(Preference preference) {
 
-                    //open the color picker
-                    ((PreferenceActivity) getActivity()).openColorChooser();
+                    Intent intent = new Intent(
+                            WallpaperManager.ACTION_CHANGE_LIVE_WALLPAPER);
+
+                    intent.putExtra(WallpaperManager.EXTRA_LIVE_WALLPAPER_COMPONENT,
+                            new ComponentName(getActivity(), LiveWallpaper.class));
+
+                    startActivity(intent);
 
                     return true;
                 }
             });
 
-            //get preference screen
-            final PreferenceScreen screen = getPreferenceScreen();
+            //battery percentage color chooser preference
+            final ChromaPreference batteryColor = (ChromaPreference) findPreference("batteryColor");
+
+            //on click save the selected color to SharedPreferences
+            batteryColor.setOnColorSelectedListener(new OnColorSelectedListener() {
+                @Override
+                public void onColorSelected(@ColorInt int color) {
+                    Utils.sendBatteryColor(getActivity(), color);
+                }
+            });
 
             //get typeface and size options
             final Preference typefacePreference = findPreference(getActivity().getString(R.string.pref_typeface));
@@ -134,14 +162,14 @@ public class PreferenceActivity extends AppCompatActivity implements ColorChoose
             Preference batteryPreference = findPreference("batteryText");
 
             //check if battery is enabled or not and add o remove typeface, color and size preferences
-            resolveBatteryPreference(screen, typefacePreference, colorPreference, sizePreference);
+            resolveBatteryPreference(screen, typefacePreference, typefacePreference, sizePreference);
 
             //on click battery preferences enable or remove typeface, color and size preferences
             batteryPreference.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
                 @Override
                 public boolean onPreferenceClick(Preference preference) {
 
-                    resolveBatteryPreference(screen, typefacePreference, colorPreference, sizePreference);
+                    resolveBatteryPreference(screen, typefacePreference, batteryColor, sizePreference);
 
                     return true;
                 }
@@ -162,20 +190,20 @@ public class PreferenceActivity extends AppCompatActivity implements ColorChoose
                 screen.removePreference(colorPreference);
                 screen.removePreference(sizePreference);
             }
-        }
 
-        //register preferences changes
-        @Override
-        public void onResume() {
-            super.onResume();
-            getPreferenceManager().getSharedPreferences().registerOnSharedPreferenceChangeListener(mListenerOptions);
-        }
+            //initialize version from BuildConfig
+            String version = BuildConfig.VERSION_NAME;
 
-        //unregister preferences changes
-        @Override
-        public void onPause() {
-            getPreferenceManager().getSharedPreferences().unregisterOnSharedPreferenceChangeListener(mListenerOptions);
-            super.onPause();
+            //get the version preference
+            Preference preferenceversion = findPreference("build_number");
+
+            //dynamically set app's version
+            preferenceversion.setSummary(version);
+
+            //grey out version preference
+            preferenceversion.setEnabled(false);
+
         }
     }
+
 }

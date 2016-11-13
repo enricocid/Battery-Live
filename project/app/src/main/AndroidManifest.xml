@@ -18,10 +18,10 @@
         android:theme="@style/AppTheme">
 
         <service
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
             android:name=".LiveWallpaper"
             android:label="@string/app_name"
-            android:permission="android.permission.BIND_WALLPAPER">
+            android:permission="android.permission.BIND_WALLPAPER"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
 
             <intent-filter>
                 <action android:name="android.service.wallpaper.WallpaperService" />
@@ -33,7 +33,11 @@
 
         </service>
 
-        <activity android:name=".MainActivity">
+        <activity
+            android:name="com.enrico.earthquake.batterysimplysolid.PreferenceActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.intent.action.SET_WALLPAPER" />
@@ -42,12 +46,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-
-        <activity
-            android:name="com.enrico.earthquake.batterysimplysolid.PreferenceActivity"
-            android:label="@string/settings"
-            android:screenOrientation="portrait" />
 
         <uses-library
             android:name="com.sec.android.app.multiwindow"

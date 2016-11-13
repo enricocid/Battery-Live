@@ -8,15 +8,9 @@
     <!-- about -->
     <item
         android:id="@+id/about"
+        android:icon="@drawable/ic_information"
         android:orderInCategory="200"
         android:title="@string/about"
-        app:showAsAction="never" />
-
-    <!-- options -->
-    <item
-        android:id="@+id/option"
-        android:orderInCategory="200"
-        android:title="@string/settings"
-        app:showAsAction="never" />
+        app:showAsAction="ifRoom" />
 
 </menu>

@@ -1,8 +1,6 @@
 package com.enrico.earthquake.batterysimplysolid;
 
-import android.app.Activity;
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Rect;
@@ -13,41 +11,23 @@ import android.support.v4.content.ContextCompat;
 import android.util.DisplayMetrics;
 import android.view.WindowManager;
 
-import com.enrico.earthquake.batterysimplysolid.R;
-import com.enrico.earthquake.batterysimplysolid.Utils;
-
 import java.util.Calendar;
 
 import static android.content.Context.BATTERY_SERVICE;
 
-public class Preferences {
+class Preferences {
 
     //draw text
 
-    //method to save battery percent color
-    static void sendBatteryColor(Activity activity, Integer color) {
-
-        SharedPreferences prefs2;
-
-        prefs2 = activity.getSharedPreferences("OtherPrefs", Context.MODE_PRIVATE);
-
-        prefs2.edit()
-                .clear()
-                .apply();
-
-        prefs2.edit()
-                .putString("batterycolor", Integer.toString(color))
-                .apply();
-    }
-
     //preference for the batteryText
-    public static boolean batteryText(Context context) {
+    static boolean batteryText(Context context) {
         return PreferenceManager.getDefaultSharedPreferences(context)
                 .getBoolean("batteryText", false);
     }
 
-    public static void drawText(Context context, Canvas canvas, Paint paint, String text, int color) {
-        final Rect textBounds = new Rect(); //don't new this up in a draw method
+    //method to draw centered text
+    static void drawText(Context context, Canvas canvas, Paint paint, String text, int color) {
+        final Rect textBounds = new Rect();
 
         paint.getTextBounds(text, 0, text.length(), textBounds);
 
@@ -170,7 +150,7 @@ public class Preferences {
     }
 
     //multi-preference dialog for live wallpaper mode options
-    public static void resolveMode(Context context, Canvas c, int color) {
+    static void resolveMode(Context context, Canvas c, int charge, int discharge) {
 
         int height;
 
@@ -195,7 +175,6 @@ public class Preferences {
         int battery_complementary = height - ((batLevel * height) / 100);
 
         //Mode options
-
         String choice = PreferenceManager.getDefaultSharedPreferences(context)
                 .getString(context.getString(R.string.pref_mode), String.valueOf(0));
 
@@ -204,9 +183,9 @@ public class Preferences {
             case 0:
 
                 //set colors
-                p.setColor(Utils.getComplementaryColor(color));
+                p.setColor(discharge);
 
-                p2.setColor(color);
+                p2.setColor(charge);
 
                 //draw rectangles according to display height and battery level
                 c.drawRect(0, 0, width, height, p2);

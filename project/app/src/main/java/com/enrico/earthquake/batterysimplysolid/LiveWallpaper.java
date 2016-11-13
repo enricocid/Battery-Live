@@ -6,40 +6,54 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.os.BatteryManager;
 import android.os.Handler;
-import android.preference.PreferenceManager;
 import android.service.wallpaper.WallpaperService;
 import android.support.v4.content.ContextCompat;
 import android.view.SurfaceHolder;
 
-import com.enrico.earthquake.batterysimplysolid.Preferences;
-
 
 public class LiveWallpaper extends WallpaperService {
 
-    int color;
+    //get all customizable colors
+    int chargecolor;
+
+    int dischargecolor;
+
+    int batterycolor;
+
+    //shared preferences
     SharedPreferences prefs;
 
     SharedPreferences prefs2;
 
-    int batterycolor;
+    SharedPreferences prefs3;
+
 
     //the livewallpaper service and engine
 
     @Override
     public Engine onCreateEngine() {
 
-        prefs2 = this.getSharedPreferences("OtherPrefs", Context.MODE_PRIVATE);
+        //retrieve charge color
+        prefs = this.getSharedPreferences("primaryColor", Context.MODE_PRIVATE);
 
+        String charge = prefs.getString("bottomColor", Integer.toString(ContextCompat.getColor(getApplicationContext(), R.color.defaultBattery)));
 
-        String value2 = prefs2.getString("batterycolor", Integer.toString(ContextCompat.getColor(getApplicationContext(), R.color.defaultBatteryComplementary)));
+        chargecolor = Integer.parseInt(charge);
 
-        batterycolor = Integer.parseInt(value2);
+        //retrieve discharge color
+        prefs2 = this.getSharedPreferences("secondaryColor", Context.MODE_PRIVATE);
 
-        //retrieve set color
-        prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        String value = prefs.getString("color", Integer.toString(ContextCompat.getColor(getApplicationContext(), R.color.defaultBattery)));
+        String discharge = prefs2.getString("topColor", Integer.toString(ContextCompat.getColor(getApplicationContext(), R.color.defaultBatteryComplementary)));
 
-        color = Integer.parseInt(value);
+        dischargecolor = Integer.parseInt(discharge);
+
+        //retrieve battery percentage color
+        prefs3 = this.getSharedPreferences("batteryPercentage", Context.MODE_PRIVATE);
+
+        String batteryperc = prefs3.getString("batteryColor", Integer.toString(ContextCompat.getColor(getApplicationContext(), android.R.color.white)));
+
+        batterycolor = Integer.parseInt(batteryperc);
+
 
         return new MyWallpaperEngine();
     }
@@ -51,6 +65,7 @@ public class LiveWallpaper extends WallpaperService {
         private final Runnable drawRunner = new Runnable() {
             @Override
             public void run() {
+
                 draw();
             }
 
@@ -61,7 +76,7 @@ public class LiveWallpaper extends WallpaperService {
             this.visible = visible;
             if (visible) {
 
-                draw();
+                handler.post(drawRunner);
             } else {
                 handler.removeCallbacks(drawRunner);
             }
@@ -98,7 +113,7 @@ public class LiveWallpaper extends WallpaperService {
                 if (c != null) {
 
                     //set colors from preferences
-                    Preferences.resolveMode(getBaseContext(), c, color);
+                    Preferences.resolveMode(getBaseContext(), c, chargecolor, dischargecolor);
                     Paint p = new Paint();
 
                     //get battery level

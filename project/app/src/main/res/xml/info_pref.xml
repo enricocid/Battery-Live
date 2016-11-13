@@ -3,9 +3,10 @@
 <!-- Preferences -->
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/preference_screen">
 
-    <PreferenceCategory android:title="@string/general_category" />
+    <PreferenceCategory android:title="@string/settings" />
 
     <!-- LiveWallpaper Modes -->
     <ListPreference
@@ -15,6 +16,22 @@
         android:key="@string/pref_mode"
         android:summary="@string/mode_summary"
         android:title="@string/mode" />
+
+    <!-- Charge color -->
+    <com.pavelsikun.vintagechroma.ChromaPreference
+        android:key="chargeColor"
+        android:title="@string/color"
+        app:chromaColorMode="RGB"
+        app:chromaIndicatorMode="HEX"
+        app:chromaInitialColor="@color/defaultBattery" />
+
+    <!-- Discharge color -->
+    <com.pavelsikun.vintagechroma.ChromaPreference
+        android:key="dischargeColor"
+        android:title="@string/color"
+        app:chromaColorMode="RGB"
+        app:chromaIndicatorMode="HEX"
+        app:chromaInitialColor="@color/defaultBatteryComplementary" />
 
     <!-- Add battery text -->
     <SwitchPreference
@@ -34,21 +51,28 @@
 
     <!-- Text size-->
     <EditTextPreference
-        android:key="sizeTxt"
         android:inputType="number"
-        android:title="@string/txt_size"
-        android:summary="@string/txt_size_summary"/>
+        android:key="sizeTxt"
+        android:summary="@string/txt_size_summary"
+        android:title="@string/txt_size" />
 
-    <!-- Text color -->
-    <Preference
-        android:key="color"
+    <!-- Battery percentage color -->
+    <com.pavelsikun.vintagechroma.ChromaPreference
+        android:key="batteryColor"
         android:title="@string/color"
-        android:summary="@string/color_summary"/>
+        app:chromaColorMode="RGB"
+        app:chromaIndicatorMode="HEX"
+        app:chromaInitialColor="@android:color/white" />
+
+    <!-- Apply -->
+    <Preference
+        android:key="apply"
+        android:summary="@string/apply_summary"
+        android:title="@string/apply" />
 
     <!-- Build number -->
     <Preference
         android:key="build_number"
         android:title="@string/build_number" />
-
 
 </PreferenceScreen>

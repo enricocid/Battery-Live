@@ -4,9 +4,7 @@
 
 <resources>
     <string name="app_name" translatable="false">Battery Live</string>
-    <string name="colors">Colors</string>
-    <string name="color_palette">Color Palette</string>
-    <string name="hello_message">Choose a color!</string>
+
     <string name="about" translatable="false">About</string>
     <string name="dismiss">Perfect!</string>
     <string name="about_body"><![CDATA[
@@ -15,21 +13,26 @@
         <a href=\'https://github.com/enricocid\'>GitHub</a>
         ]]></string>
 
+    <string name="build_number">Build version</string>
     <string name="settings">Options</string>
-    <string name="general_category">General</string>
 
     <!-- live wallpaper modes -->
     <string name="pref_mode" translatable="false">pref_mode</string>
-    <string name="day_mode">hour of day colors</string>
+    <string name="day_mode">Hour of the day</string>
     <string name="battery_mode">Battery colors</string>
     <string name="default_mode">Custom</string>
-    <string name="mode">Livewallpaper modes</string>
-    <string name="mode_summary">Choose the Live Wallpaper mode</string>
-    <string name="build_number">Build\'s version</string>
+    <string name="mode">Live Wallpaper modes</string>
+    <string name="mode_summary">Choose the live wallpaper mode</string>
+
+    <!-- default modes -->
+    <string name="charge">Change charge color</string>
+    <string name="discharge">Change discharge color</string>
+    <string name="apply">Apply!</string>
+    <string name="apply_summary">Click to apply the changes!</string>
 
     <!-- battery percentage options -->
     <string name="battery_text">Enable battery percent</string>
-    <string name="battery_text_summary">Show battery percent at the middle of the screen</string>
+    <string name="battery_text_summary">Show battery percent at the center of the wall</string>
 
     <string name="typeface">Change typeface</string>
     <string name="typeface_summary">Change battery percentage typeface font</string>
@@ -45,6 +48,5 @@
     <string name="txt_size_summary">Change battery percentage size</string>
 
     <string name="color">Change color</string>
-    <string name="color_summary">Change battery percentage color</string>
 
 </resources>
