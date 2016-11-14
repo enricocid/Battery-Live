@@ -19,7 +19,7 @@ The app supports 5.0+ devices.
 ![ScreenShot](https://raw.githubusercontent.com/enricocid/Battery-Live/master/art/screens2.png)
 
 
-You can download the latest (2.0.0) signed APK from this repo here: https://github.com/enricocid/Battery-Live/raw/master/project/app/app-release.apk
+You can download the latest (2.0.1) signed APK from this repo here: https://github.com/enricocid/Battery-Live/raw/master/project/app/app-release.apk
 
 
 The app is available on:
@@ -70,12 +70,16 @@ https://github.com/afollestad/material-dialogs
 
 
 **- Responsive toolbar by Lucas Urbas**
-@@lurbas
+@lurbas
 
 Page:
 https://medium.com/@lucasurbas/making-android-toolbar-responsive-2627d4e07129
 
+**- naofum for Japanese translations**
+@naofum
 
+Git page:
+https://github.com/naofum
 
 -------------------
 This app follows the **KISS phylosophy** (https://en.wikipedia.org/wiki/KISS_principle), it means that the code/design will be kept simple & fast with no useless implementations/features.
