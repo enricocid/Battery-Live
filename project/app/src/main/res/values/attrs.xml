@@ -3,12 +3,7 @@
 <!-- Use attr references to set resources depending of the theme selected -->
 
 <resources>
-
     <attr name="theme_background" format="color" />
-    <attr name="customAccent" format="reference" />
-    <attr name="primaryAccent" format="reference" />
-    <attr name="secondaryAccent" format="reference" />
     <attr name="close_icon" format="reference" />
     <attr name="info_icon" format="reference" />
-
 </resources>
