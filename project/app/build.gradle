@@ -13,7 +13,7 @@ android {
         applicationId "com.enrico.earthquake.batterysimplysolid"
         minSdkVersion 21
         targetSdkVersion 25
-        versionCode 2
+        versionCode 3
         versionName "2.0.1"
     }
     buildTypes {
