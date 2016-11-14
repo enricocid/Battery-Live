@@ -22,12 +22,12 @@
     <string name="apply">Applica!</string>
     <string name="apply_summary">Clicca per applicare i cambiamenti!</string>
     <string name="build_number">Versione build</string>
-    <string name="battery_text">Abilita percento batteria</string>
+    <string name="battery_text">Abilita percentuale batteria</string>
     <string name="battery_text_summary">Mostra la percentuale della batteria al centro dello sfondo</string>
     <string name="typeface">Cambia tipografia</string>
-    <string name="typeface_summary">Cambia la tipografia del carattere della percento batteria</string>
+    <string name="typeface_summary">Cambia la tipografia del carattere della percentuale della batteria</string>
     <string name="txt_size">Cambia dimensioni</string>
-    <string name="txt_size_summary">Cambia le dimensioni percento batteria</string>
+    <string name="txt_size_summary">Cambia le dimensioni della percentuale della batteria</string>
     <string name="color">Cambia colore</string>
     <string name="pref_theme_title">Tema app</string>
     <string name="themesum">Scegli il tuo tema preferito</string>
