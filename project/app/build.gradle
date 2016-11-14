@@ -28,6 +28,5 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:25.0.0'
     compile 'com.afollestad.material-dialogs:commons:0.9.1.0'
-    compile 'com.android.support:design:25.0.0'
     compile 'com.pavelsikun:vintage-chroma:1.5'
 }
