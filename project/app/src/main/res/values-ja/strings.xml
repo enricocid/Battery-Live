@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- strings -->
+
+<resources>
+
+    <string name="dismiss">パーフェクト!</string>
+    <string name="about_body"><![CDATA[
+        battery live は <b>Enrico D\'Ortenzio</b> によってデザインされたアプリです。<br/>
+        <a href=\'https://plus.google.com/u/0/+EnricoDortenzio/posts\'>Google+</a>&nbsp;&nbsp;
+        <a href=\'https://github.com/enricocid\'>GitHub</a>
+        ]]></string>
+
+    <string name="build_number">ビルドバージョン</string>
+
+    <!-- Preference categories -->
+    <string name="settings">オプション</string>
+    <string name="other">その他</string>
+
+    <!-- live wallpaper modes -->
+    <string name="day_mode">１日の時間</string>
+    <string name="battery_mode">バッテリーの色</string>
+    <string name="default_mode">カスタム</string>
+    <string name="mode">ライブ壁紙モード</string>
+    <string name="mode_summary">ライブ壁紙モードを選択します</string>
+
+    <!-- default modes -->
+    <string name="charge">充電の色</string>
+    <string name="discharge">放電の色</string>
+    <string name="apply">適用!</string>
+    <string name="apply_summary">クリックすると変更を適用します!</string>
+
+    <!-- battery percentage options -->
+    <string name="battery_text">バッテリーパーセントを有効にする</string>
+    <string name="battery_text_summary">壁紙の中央にバッテリーのパーセントを表示します</string>
+
+    <string name="typeface">タイプフェースを変更</string>
+    <string name="typeface_summary">バッテリーパーセントのタイプフェースフォントを変更します</string>
+
+    <string name="txt_size">サイズを変更</string>
+    <string name="txt_size_summary">バッテリーパーセントのサイズを変更します</string>
+    <string name="color">色を変更</string>
+
+    <!-- Theme options -->
+    <string name="pref_theme_title">アプリのテーマ</string>
+    <string name="themesum">お好みのテーマを選択</string>
+    <string name="light_theme">ライト</string>
+    <string name="dark_theme">ダーク</string>
+    <string name="darkest_theme">ダーカー</string>
+    <string name="toolbarColor">ツールバーの色を変更</string>
+    <string name="lightColor">ライトステータスバーを適用</string>
+    <string name="lightColor_summary">ステータスバーのアイコンにダークトーンを適用します</string>
+    <string name="message">Lollipop で利用できない機能</string>
+
+</resources>
