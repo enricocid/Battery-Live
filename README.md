@@ -3,6 +3,11 @@
 
 ![ScreenShot](https://raw.githubusercontent.com/enricocid/Battery-Live/master/art/solid.png)
 
+Icon by **JediBurrell**
+
+Git page: https://github.com/JediBurrell
+
+
 Battery Live is a simple app to apply a live wallpaper. 
 The app supports 5.0+ devices.
 
@@ -19,7 +24,7 @@ The app supports 5.0+ devices.
 ![ScreenShot](https://raw.githubusercontent.com/enricocid/Battery-Live/master/art/screens2.png)
 
 
-You can download the latest (2.0.1) signed APK from this repo here: https://github.com/enricocid/Battery-Live/raw/master/project/app/app-release.apk
+You can download the latest (2.0.2) signed APK from this repo here: https://github.com/enricocid/Battery-Live/raw/master/project/app/app-release.apk
 
 
 The app is available on:
