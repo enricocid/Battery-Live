@@ -7,9 +7,10 @@
     <string name="dismiss">Perfetto!</string>
     <string name="about_body"><![CDATA[
         battery live, una app progettata da <b>Enrico D\'Ortenzio</b>.<br/>
-        <a href=\'https://plus.google.com/u/0/+EnricoDortenzio/posts\'>Google+</a>&nbsp;&nbsp;
-        <a href=\'https://github.com/enricocid\'>GitHub</a>
-        ]]></string>
+        <a href=\'https://plus.google.com/u/0/+EnricoDortenzio/posts\'>Google+</a>&nbsp;
+        <a href=\'https://github.com/enricocid\'>GitHub</a>&nbsp<br/>
+        si ringrazia <b>JediBurrell</b>.<br/>
+        <a href=\'https://github.com/JediBurrell\'>GitHub</a>&nbsp]]></string>
 
     <string name="settings">Opzioni</string>
     <string name="day_mode">Ora del giorno</string>

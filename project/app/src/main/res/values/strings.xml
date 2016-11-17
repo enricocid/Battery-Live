@@ -9,9 +9,11 @@
     <string name="dismiss">Perfect!</string>
     <string name="about_body"><![CDATA[
         battery live, an app  designed by <b>Enrico D\'Ortenzio</b>.<br/>
-        <a href=\'https://plus.google.com/u/0/+EnricoDortenzio/posts\'>Google+</a>&nbsp;&nbsp;
-        <a href=\'https://github.com/enricocid\'>GitHub</a>
-        ]]></string>
+        <a href=\'https://plus.google.com/u/0/+EnricoDortenzio/posts\'>Google+</a>&nbsp;
+        <a href=\'https://github.com/enricocid\'>GitHub</a>&nbsp<br/>
+        big thanks to <b>JediBurrell</b>.<br/>
+        <a href=\'https://github.com/JediBurrell\'>GitHub</a>&nbsp]]>
+</string>
 
     <string name="build_number">Build version</string>
 
