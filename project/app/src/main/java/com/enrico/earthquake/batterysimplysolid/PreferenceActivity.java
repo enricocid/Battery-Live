@@ -261,6 +261,17 @@ public class PreferenceActivity extends AppCompatActivity {
                 LightStatusBar.setEnabled(true);
             }
 
+            //initialize version from BuildConfig
+            String version = BuildConfig.VERSION_NAME;
+
+            //get the version preference
+            Preference preferenceversion = findPreference("build_number");
+
+            //dynamically set app's version
+            preferenceversion.setSummary(version);
+
+            //grey out version preference
+            preferenceversion.setEnabled(false);
         }
 
         //register preferences changes
@@ -297,18 +308,6 @@ public class PreferenceActivity extends AppCompatActivity {
                 screen.removePreference(colorPreference);
                 screen.removePreference(sizePreference);
             }
-
-            //initialize version from BuildConfig
-            String version = BuildConfig.VERSION_NAME;
-
-            //get the version preference
-            Preference preferenceversion = findPreference("build_number");
-
-            //dynamically set app's version
-            preferenceversion.setSummary(version);
-
-            //grey out version preference
-            preferenceversion.setEnabled(false);
 
         }
     }
