@@ -5,6 +5,9 @@ import android.app.WallpaperManager;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.preference.Preference;
@@ -13,12 +16,18 @@ import android.preference.PreferenceScreen;
 import android.support.annotation.ColorInt;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.view.ContextThemeWrapper;
+import android.support.v7.view.menu.ActionMenuItemView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageButton;
 
 import com.pavelsikun.vintagechroma.ChromaPreference;
 import com.pavelsikun.vintagechroma.OnColorSelectedListener;
+
+import java.util.ArrayList;
 
 @SuppressLint("NewApi")
 public class PreferenceActivity extends AppCompatActivity {
@@ -40,13 +49,34 @@ public class PreferenceActivity extends AppCompatActivity {
         setContentView(R.layout.preference_activity);
 
         //set the toolbar
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        final Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         //provide back navigation
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
+
+        //theming
+        final ViewGroup vg = (ViewGroup) getWindow().getDecorView();
+        vg.postDelayed(new Runnable() {
+
+            @Override
+            public void run() {
+                final ArrayList<View> views = new ArrayList<>();
+                vg.findViewsWithText(views, getResources().getText(R.string.about),
+                        View.FIND_VIEWS_WITH_CONTENT_DESCRIPTION);
+                if (views.isEmpty()) {
+                    return;
+                }
+                ((ActionMenuItemView) views.get(0)).setIcon(Preferences.LightIconsEnabled(PreferenceActivity.this) ? getDrawable(R.drawable.ic_information) : getDrawable(R.drawable.ic_information_dark));
+                toolbar.setTitleTextColor(Preferences.LightIconsEnabled(PreferenceActivity.this) ? Color.BLACK : Color.WHITE);
+                final Drawable drawable = getResources().getDrawable(Preferences.LightIconsEnabled(PreferenceActivity.this) ? R.drawable.ic_close : R.drawable.ic_close_dark);
+                getSupportActionBar().setHomeAsUpIndicator(drawable);
+
+            }
+
+        }, 100);
 
         //set the menu's toolbar click listener
         toolbar.setOnMenuItemClickListener(

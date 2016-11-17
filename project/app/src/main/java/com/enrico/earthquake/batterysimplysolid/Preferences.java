@@ -245,14 +245,14 @@ class Preferences {
     }
 
     //method to apply selected theme
-    static void applyTheme(ContextThemeWrapper contextThemeWrapper, Context context) {
+    static void applyTheme(ContextThemeWrapper contextThemeWrapper, Context context) { 
         int theme = Preferences.resolveTheme(context);
         contextThemeWrapper.setTheme(theme);
 
     }
 
     //are light icons enabled?
-    private static boolean LightIconsEnabled(Context context) {
+    public static boolean LightIconsEnabled(Context context) {
         return android.support.v7.preference.PreferenceManager.getDefaultSharedPreferences(context)
                 .getBoolean("lightColored", false);
     }
