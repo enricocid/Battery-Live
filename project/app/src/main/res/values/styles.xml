@@ -76,6 +76,10 @@
         <item name="contentInsetStart">@dimen/first_keyline</item>
     </style>
 
+
+    <style name="Toolbar_Light" parent="Base.ThemeOverlay.AppCompat.Dark.ActionBar">
+    </style>
+
     <style name="Custom.Widget.Toolbar.Button.Navigation" parent="Widget.AppCompat.Toolbar.Button.Navigation">
         <item name="android:minWidth">48dp</item>
     </style>
