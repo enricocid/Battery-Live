@@ -1,7 +1,7 @@
 -# Battery-Live
  -Simple app to apply a livewallpaper based on battery level
 
-![ScreenShot](https://raw.githubusercontent.com/enricocid/Battery-Live/master/art/solid2.png)
+![ScreenShot](https://raw.githubusercontent.com/enricocid/Battery-Live/master/art/solid2.png)![ScreenShot](https://raw.githubusercontent.com/enricocid/Battery-Live/master/art/round.png)
 
 Icon by **JediBurrell**
 
