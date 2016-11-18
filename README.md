@@ -16,15 +16,18 @@ The app supports 5.0+ devices.
 - Simple UI;
 - Responsive toolbar;
 - Different live wallpaper modes (Custom ,battery, hour of the day);
+- Round icon support for Android 7.1;
 - Options to customize live wallpapers;
-- App theming;
+- App theming:
+   .choose between light, dark and darker themes;
+   .Toolbar coloring;
+   .light status bar;
 
 
+![ScreenShot](https://raw.githubusercontent.com/enricocid/Battery-Live/master/art/screens3.png)
 
-![ScreenShot](https://raw.githubusercontent.com/enricocid/Battery-Live/master/art/screens2.png)
 
-
-You can download the latest (2.0.2) signed APK from this repo here: https://github.com/enricocid/Battery-Live/raw/master/project/app/app-release.apk
+You can download the latest (2.0.3) signed APK from this repo here: https://github.com/enricocid/Battery-Live/raw/master/project/app/app-release.apk
 
 
 The app is available on:
