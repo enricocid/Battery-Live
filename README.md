@@ -19,9 +19,9 @@ The app supports 5.0+ devices.
 - Round icon support for Android 7.1;
 - Options to customize live wallpapers;
 - App theming:
-   .choose between light, dark and darker themes;
-   .Toolbar coloring;
-   .light status bar;
+   - choose between light, dark and darker themes;
+   - toolbar coloring;
+   - light status bar;
 
 
 ![ScreenShot](https://raw.githubusercontent.com/enricocid/Battery-Live/master/art/screens3.png)
