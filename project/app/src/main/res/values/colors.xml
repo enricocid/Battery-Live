@@ -5,8 +5,8 @@
 <resources>
     <color name="colorPrimary">#FFC107</color>
     <color name="colorPrimaryDark">#FFA000</color>
-    <color name="defaultBattery">#607D8B</color>
-    <color name="defaultBatteryComplementary">#795548</color>
+    <color name="defaultBattery">#1565C0</color>
+    <color name="defaultBatteryComplementary">#0D47A1</color>
 
     <!-- Charge state colors-->
     <color name="materialGreen">#388E3C</color>
