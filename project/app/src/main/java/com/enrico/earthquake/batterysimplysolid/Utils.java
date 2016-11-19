@@ -3,11 +3,11 @@ package com.enrico.earthquake.batterysimplysolid;
 import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
-import com.afollestad.materialdialogs.color.CircleView;
 import com.pavelsikun.vintagechroma.ChromaPreference;
 
 class Utils {
@@ -135,10 +135,20 @@ class Utils {
 
                 toolbar.setBackgroundColor(color);
 
-                activity.getWindow().setStatusBarColor(CircleView.shiftColorDown(color));
+                activity.getWindow().setStatusBarColor(shiftColor(color, 0.9f));
             }
 
         });
+    }
+
+    //used to shift color down a bit
+    private static int shiftColor(int color, float fraction) {
+
+        float[] hsv = new float[3];
+        Color.colorToHSV(color, hsv);
+        hsv[2] *= fraction; // value component
+
+        return Color.HSVToColor(hsv);
     }
 
     //show about dialog
