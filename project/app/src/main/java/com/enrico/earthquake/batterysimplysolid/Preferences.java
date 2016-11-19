@@ -246,7 +246,7 @@ class Preferences {
 
     //method to apply selected theme
     static void applyTheme(ContextThemeWrapper contextThemeWrapper, Context context) {
-        int theme = Preferences.resolveTheme(context);
+        int theme = resolveTheme(context);
         contextThemeWrapper.setTheme(theme);
 
     }
@@ -259,7 +259,7 @@ class Preferences {
 
     //method to apply light status bar
     static void applyLightIcons(Activity activity) {
-        if (Preferences.LightIconsEnabled(activity)) {
+        if (LightIconsEnabled(activity)) {
             if (Build.VERSION.SDK_INT >= 23) {
 
                 activity.getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
