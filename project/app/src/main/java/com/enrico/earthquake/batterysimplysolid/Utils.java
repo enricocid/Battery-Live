@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
 import com.afollestad.materialdialogs.color.CircleView;
+import com.pavelsikun.vintagechroma.ChromaPreference;
 
 class Utils {
 
@@ -75,8 +76,40 @@ class Utils {
                 .apply();
     }
 
+
+    //properly format a color from chroma preference input to hex code
+    static String ColorValue(int color) {
+
+        return String.format("#%06X", (0xFFFFFF & color));
+    }
+
+    //method to retrieve battery charge colors
+    static int retrieveChargeColor(SharedPreferences prefs, Context context) {
+
+        String charge = prefs.getString("bottomColor", Integer.toString(ContextCompat.getColor(context, R.color.defaultBattery)));
+
+        return Integer.parseInt(charge);
+    }
+
+    //method to retrieve battery discharge colors
+    static int retrieveDischargeColor(SharedPreferences prefs2, Context context) {
+
+        String discharge = prefs2.getString("topColor", Integer.toString(ContextCompat.getColor(context, R.color.defaultBatteryComplementary)));
+
+        return Integer.parseInt(discharge);
+    }
+
+    //method to retrieve battery text color
+    static int retrieveBatteryColor(SharedPreferences prefs3, Context context) {
+
+        String batteryperc = prefs3.getString("batteryColor", Integer.toString(ContextCompat.getColor(context, android.R.color.white)));
+
+        return Integer.parseInt(batteryperc);
+
+    }
+
     //method to restore toolbar color
-    static void restoreToolbarColor(Activity activity, Toolbar toolbar) {
+    static void restoreToolbarColor(Activity activity, Toolbar toolbar, ChromaPreference toolbarColor) {
 
 
         //retrieve toolbar color
@@ -87,6 +120,9 @@ class Utils {
         int color = Integer.parseInt(color1);
 
         changeToolbarColor(activity, toolbar, color);
+
+        //restore toolbar preference summary
+        toolbarColor.setSummary(ColorValue(color));
     }
 
     //method to change toolbar color

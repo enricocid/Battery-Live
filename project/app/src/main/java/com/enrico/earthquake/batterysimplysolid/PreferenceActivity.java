@@ -3,6 +3,7 @@ package com.enrico.earthquake.batterysimplysolid;
 import android.annotation.SuppressLint;
 import android.app.WallpaperManager;
 import android.content.ComponentName;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
@@ -128,6 +129,12 @@ public class PreferenceActivity extends AppCompatActivity {
 
     public static class SettingsFragment extends PreferenceFragment {
 
+        //chroma preferences
+        ChromaPreference chargePreference;
+        ChromaPreference dischargePreference;
+        ChromaPreference batteryColor;
+        ChromaPreference toolbarColor;
+
         private SharedPreferences.OnSharedPreferenceChangeListener mListenerOptions;
 
         @Override
@@ -139,7 +146,7 @@ public class PreferenceActivity extends AppCompatActivity {
             final PreferenceScreen screen = getPreferenceScreen();
 
             //get charge color preference
-            final ChromaPreference chargePreference = (ChromaPreference) findPreference("chargeColor");
+            chargePreference = (ChromaPreference) findPreference("chargeColor");
 
             //on click save the selected color to SharedPreferences
             chargePreference.setOnColorSelectedListener(new OnColorSelectedListener() {
@@ -152,7 +159,7 @@ public class PreferenceActivity extends AppCompatActivity {
             });
 
             //get discharge color preference
-            final ChromaPreference dischargePreference = (ChromaPreference) findPreference("dischargeColor");
+            dischargePreference = (ChromaPreference) findPreference("dischargeColor");
 
             //on click save the selected color to SharedPreferences
             dischargePreference.setOnColorSelectedListener(new OnColorSelectedListener() {
@@ -192,7 +199,7 @@ public class PreferenceActivity extends AppCompatActivity {
             Preference batteryPreference = findPreference("batteryText");
 
             //battery percentage color chooser preference
-            final ChromaPreference batteryColor = (ChromaPreference) findPreference("batteryColor");
+            batteryColor = (ChromaPreference) findPreference("batteryColor");
 
             //on click save the selected color to SharedPreferences
             batteryColor.setOnColorSelectedListener(new OnColorSelectedListener() {
@@ -231,7 +238,7 @@ public class PreferenceActivity extends AppCompatActivity {
             };
 
             //toolbar color preference
-            final ChromaPreference toolbarColor = (ChromaPreference) findPreference("toolbarColor");
+            toolbarColor = (ChromaPreference) findPreference("toolbarColor");
 
             //on click change toolbar color
             toolbarColor.setOnColorSelectedListener(new OnColorSelectedListener() {
@@ -279,11 +286,34 @@ public class PreferenceActivity extends AppCompatActivity {
         public void onResume() {
             super.onResume();
 
-            //restore toolbar color on resume
+            //restore charge color preference summary on resume
+            SharedPreferences prefs = getActivity().getSharedPreferences("primaryColor", Context.MODE_PRIVATE);
+
+            int chargecolor = Utils.retrieveChargeColor(prefs, getContext());
+
+            chargePreference.setSummary(Utils.ColorValue(chargecolor));
+
+            //restore discharge color preference summary on resume
+            SharedPreferences prefs2 = getActivity().getSharedPreferences("secondaryColor", Context.MODE_PRIVATE);
+
+            int dischargecolor = Utils.retrieveDischargeColor(prefs2, getContext());
+
+            dischargePreference.setSummary(Utils.ColorValue(dischargecolor));
+
+            //restore battery percentage color preference summary on resume
+
+            SharedPreferences prefs3 = getActivity().getSharedPreferences("batteryPercentage", Context.MODE_PRIVATE);
+
+            int batterycolor = Utils.retrieveBatteryColor(prefs3, getContext());
+
+            batteryColor.setSummary(Utils.ColorValue(batterycolor));
+
+            //restore toolbar color and relative preference summary on resume
             Toolbar toolbar = (Toolbar) getActivity().findViewById(R.id.toolbar);
 
-            Utils.restoreToolbarColor(getActivity(), toolbar);
+            Utils.restoreToolbarColor(getActivity(), toolbar, toolbarColor);
 
+            //register preferences changes
             getPreferenceManager().getSharedPreferences().registerOnSharedPreferenceChangeListener(mListenerOptions);
         }
 
