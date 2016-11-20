@@ -22,7 +22,7 @@ import static android.content.Context.BATTERY_SERVICE;
 class Preferences {
 
     //multi-preference dialog for live wallpaper mode options
-    static void resolveMode(Context context, Canvas c, int charge, int discharge) {
+    static void resolveMode(Context context, Canvas canvas, int charge, int discharge) {
 
         int height;
 
@@ -60,9 +60,9 @@ class Preferences {
                 p2.setColor(charge);
 
                 //draw rectangles according to display height and battery level
-                c.drawRect(0, 0, width, height, p2);
+                canvas.drawRect(0, 0, width, height, p2);
 
-                c.drawRect(0, 0, width, battery_complementary, p);
+                canvas.drawRect(0, 0, width, battery_complementary, p);
 
                 break;
 
@@ -71,7 +71,7 @@ class Preferences {
                 //draw rectangle according to battery-context
                 batteryModes(context, p, batLevel);
 
-                c.drawRect(0, 0, width, height, p);
+                canvas.drawRect(0, 0, width, height, p);
 
                 break;
 
@@ -80,9 +80,9 @@ class Preferences {
                 //draw rectangles according to battery level and time-context
                 dayModes(context, p, p2);
 
-                c.drawRect(0, 0, width, height, p2);
+                canvas.drawRect(0, 0, width, height, p2);
 
-                c.drawRect(0, 0, width, battery_complementary, p);
+                canvas.drawRect(0, 0, width, battery_complementary, p);
                 break;
         }
     }
@@ -198,22 +198,24 @@ class Preferences {
     }
 
     //method to draw centered text
-    static void drawText(Context context, Canvas canvas, Paint paint, String text, int color) {
-        final Rect textBounds = new Rect();
-
-        paint.getTextBounds(text, 0, text.length(), textBounds);
-
-        int width = textBounds.width();
+    static void drawText(Context context, Paint paint, Canvas canvas, String text, int color, Rect rect) {
 
         paint.setTypeface(resolveTypeface(context));
         paint.setAntiAlias(true);
         paint.setElegantTextHeight(true);
-        paint.setTextSize(Integer.parseInt(textSize(context)) * 10);
         paint.setTextAlign(Paint.Align.CENTER);
-        paint.getTextBounds(text, 0, text.length(), textBounds);
+        paint.setTextSize(Integer.parseInt(textSize(context)) * 10);
         paint.setColor(color);
 
-        canvas.drawText(text, (canvas.getWidth() - width) / 2, (canvas.getHeight() - paint.ascent()) / 2, paint);
+        //get Canvas metrics
+        canvas.getClipBounds(rect);
+        int cHeight = rect.height();
+        int cWidth = rect.width();
+        paint.getTextBounds(text, 0, text.length(), rect);
+        float x = cWidth / 2f;
+        float y = cHeight / 2f + rect.height() / 2f - rect.bottom;
+
+        canvas.drawText(text, x, y, paint);
 
     }
 

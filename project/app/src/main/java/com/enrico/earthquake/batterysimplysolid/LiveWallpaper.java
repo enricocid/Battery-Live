@@ -4,11 +4,10 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Canvas;
 import android.graphics.Paint;
+import android.graphics.Rect;
 import android.os.BatteryManager;
 import android.os.Handler;
 import android.service.wallpaper.WallpaperService;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.view.SurfaceHolder;
 
 
@@ -28,6 +27,9 @@ public class LiveWallpaper extends WallpaperService {
 
     SharedPreferences prefs3;
 
+    Rect rect;
+
+    Paint paint;
 
     //the livewallpaper service and engine
 
@@ -51,6 +53,10 @@ public class LiveWallpaper extends WallpaperService {
         prefs3 = this.getSharedPreferences("batteryPercentage", Context.MODE_PRIVATE);
 
         batterycolor = Utils.retrieveBatteryColor(prefs3, getBaseContext());
+
+        //allocate rect and paint
+        rect = new Rect();
+        paint = new Paint();
 
         return new MyWallpaperEngine();
     }
@@ -104,25 +110,24 @@ public class LiveWallpaper extends WallpaperService {
         private void draw() {
 
             SurfaceHolder holder = getSurfaceHolder();
-            Canvas c = null;
+            Canvas canvas = null;
             try {
-                c = holder.lockCanvas();
-                if (c != null) {
+                canvas = holder.lockCanvas();
+                if (canvas != null) {
 
                     //set colors from preferences
-                    Preferences.resolveMode(getBaseContext(), c, chargecolor, dischargecolor);
-                    Paint p = new Paint();
+                    Preferences.resolveMode(getBaseContext(), canvas, chargecolor, dischargecolor);
 
                     //get battery level
                     BatteryManager bm = (BatteryManager) getBaseContext().getSystemService(BATTERY_SERVICE);
                     int batLevel = bm.getIntProperty(BatteryManager.BATTERY_PROPERTY_CAPACITY);
 
                     if (Preferences.batteryText(getBaseContext()))
-                        Preferences.drawText(getBaseContext(), c, p, Integer.toString(batLevel), batterycolor);
+                        Preferences.drawText(getBaseContext(), paint, canvas, Integer.toString(batLevel), batterycolor, rect);
                 }
             } finally {
-                if (c != null)
-                    holder.unlockCanvasAndPost(c);
+                if (canvas != null)
+                    holder.unlockCanvasAndPost(canvas);
             }
             handler.removeCallbacks(drawRunner);
 

@@ -53,7 +53,6 @@
     <EditTextPreference
         android:inputType="number"
         android:key="sizeTxt"
-        android:hint="@string/txt_size_hint"
         android:summary="@string/txt_size_summary"
         android:title="@string/txt_size" />
 

@@ -25,7 +25,6 @@
     <string name="typeface_summary">Cambia la tipografia del carattere della percentuale della batteria</string>
     <string name="txt_size">Cambia dimensioni</string>
     <string name="txt_size_summary">Cambia le dimensioni della percentuale della batteria</string>
-    <string name="txt_size_hint">un numero da 1 a 50</string>
     <string name="color">Cambia colore</string>
     <string name="pref_theme_title">Tema app</string>
     <string name="themesum">Scegli il tuo tema preferito</string>

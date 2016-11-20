@@ -57,7 +57,6 @@
     <string name="normal" translatable="false">Normal</string>
     <string name="txt_size">Change size</string>
     <string name="txt_size_summary">Change battery percentage size</string>
-    <string name="txt_size_hint">a number from 1 to 50</string>
     <string name="color">Change color</string>
 
     <!-- Theme options -->
