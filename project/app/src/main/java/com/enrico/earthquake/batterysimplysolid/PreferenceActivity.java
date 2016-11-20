@@ -90,8 +90,10 @@ public class PreferenceActivity extends AppCompatActivity {
                             //about button
                             case R.id.about:
 
-                                //show about dialog
-                                Utils.showAbout(PreferenceActivity.this);
+                                //show about activity
+
+                                Intent aboutActivity = new Intent(PreferenceActivity.this, AboutActivity.class);
+                                startActivity(aboutActivity);
 
                                 break;
                         }
@@ -267,18 +269,6 @@ public class PreferenceActivity extends AppCompatActivity {
             } else {
                 LightStatusBar.setEnabled(true);
             }
-
-            //initialize version from BuildConfig
-            String version = BuildConfig.VERSION_NAME;
-
-            //get the version preference
-            Preference preferenceversion = findPreference("build_number");
-
-            //dynamically set app's version
-            preferenceversion.setSummary(version);
-
-            //grey out version preference
-            preferenceversion.setEnabled(false);
         }
 
         //register preferences changes
@@ -311,7 +301,9 @@ public class PreferenceActivity extends AppCompatActivity {
             //restore toolbar color and relative preference summary on resume
             Toolbar toolbar = (Toolbar) getActivity().findViewById(R.id.toolbar);
 
-            Utils.restoreToolbarColor(getActivity(), toolbar, toolbarColor);
+            Utils.restoreToolbarColor(getActivity(), toolbar);
+
+            Utils.restoreToolbarPreferenceColor(getActivity(), toolbarColor);
 
             //register preferences changes
             getPreferenceManager().getSharedPreferences().registerOnSharedPreferenceChangeListener(mListenerOptions);

@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
 import com.pavelsikun.vintagechroma.ChromaPreference;
@@ -108,21 +107,34 @@ class Utils {
 
     }
 
+    //method to retrieve battery text color
+    private static int retrieveToolbarColor(SharedPreferences prefs4, Context context) {
+
+        String color1 = prefs4.getString("niceColor", Integer.toString(ContextCompat.getColor(context, R.color.colorPrimaryDark)));
+
+        return Integer.parseInt(color1);
+
+    }
+
     //method to restore toolbar color
-    static void restoreToolbarColor(Activity activity, Toolbar toolbar, ChromaPreference toolbarColor) {
+    static void restoreToolbarColor(Activity activity, Toolbar toolbar) {
+
+        //retrieve toolbar color
+        SharedPreferences prefs4 = activity.getSharedPreferences("toolbarColor", Context.MODE_PRIVATE);
+
+        changeToolbarColor(activity, toolbar, retrieveToolbarColor(prefs4, activity));
+
+    }
+
+    //method to restore toolbar color
+    static void restoreToolbarPreferenceColor(Activity activity, ChromaPreference toolbarColor) {
 
 
         //retrieve toolbar color
         SharedPreferences prefs4 = activity.getSharedPreferences("toolbarColor", Context.MODE_PRIVATE);
 
-        String color1 = prefs4.getString("niceColor", Integer.toString(ContextCompat.getColor(activity, R.color.colorPrimaryDark)));
-
-        int color = Integer.parseInt(color1);
-
-        changeToolbarColor(activity, toolbar, color);
-
         //restore toolbar preference summary
-        toolbarColor.setSummary(ColorValue(color));
+        toolbarColor.setSummary(ColorValue(retrieveToolbarColor(prefs4, activity)));
     }
 
     //method to change toolbar color
@@ -149,12 +161,5 @@ class Utils {
         hsv[2] *= fraction; // value component
 
         return Color.HSVToColor(hsv);
-    }
-
-    //show about dialog
-    static void showAbout(AppCompatActivity activity) {
-
-        AboutDialog.show(activity);
-
     }
 }

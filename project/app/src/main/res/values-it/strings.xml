@@ -4,16 +4,11 @@
 
 <resources>
 
-    <string name="dismiss">Perfetto!</string>
-    <string name="about_body"><![CDATA[
-        battery live, una app progettata da <b>Enrico D\'Ortenzio</b>.<br/>
-        <a href=\'https://plus.google.com/u/0/+EnricoDortenzio/posts\'>Google+</a>&nbsp;
-        <a href=\'https://github.com/enricocid\'>GitHub</a>&nbsp<br/>
-        si ringraziano:<br/>
-        <b>JediBurrell</b> (<a href=\'https://github.com/JediBurrell\'>GitHub</a>)&nbsp<br/>
-        <b>naofum</b> (<a href=\'https://github.com/naofum\'>GitHub</a>)&nbsp]]>
-    </string>
-
+    <string name="dev_infos">Info sviluppatore</string>
+    <string name="credits">Ringraziamenti</string>
+    <string name="libs">Librerie</string>
+    <string name="application_info">Info applicazione</string>
+    <string name="version">Versione</string>
     <string name="settings">Opzioni</string>
     <string name="day_mode">Ora del giorno</string>
     <string name="battery_mode">Batteria</string>
@@ -24,7 +19,6 @@
     <string name="discharge">Colore scarica</string>
     <string name="apply">Applica!</string>
     <string name="apply_summary">Clicca per applicare i cambiamenti!</string>
-    <string name="build_number">Versione build</string>
     <string name="battery_text">Abilita percentuale batteria</string>
     <string name="battery_text_summary">Mostra la percentuale della batteria al centro dello sfondo</string>
     <string name="typeface">Cambia tipografia</string>

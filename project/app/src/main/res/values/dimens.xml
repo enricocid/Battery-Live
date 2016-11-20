@@ -2,6 +2,10 @@
 
 <!-- Dimensions-->
 <resources>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="padding">8dp</dimen>
+    <dimen name="body_padding">4dp</dimen>
     <dimen name="first_keyline">16dp</dimen>
     <dimen name="second_keyline">72dp</dimen>
     <dimen name="toolbar_h_padding">4dp</dimen>

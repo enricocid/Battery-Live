@@ -4,18 +4,6 @@
 
 <resources>
 
-    <string name="dismiss">パーフェクト!</string>
-    <string name="about_body"><![CDATA[
-        battery live は <b>Enrico D\'Ortenzio</b> によってデザインされたアプリです。<br/>
-        <a href=\'https://plus.google.com/u/0/+EnricoDortenzio/posts\'>Google+</a>&nbsp;
-        <a href=\'https://github.com/enricocid\'>GitHub</a>&nbsp<br/>
-        おかげで:<br/>
-        <b>JediBurrell</b> (<a href=\'https://github.com/JediBurrell\'>GitHub</a>)&nbsp<br/>
-        <b>naofum</b> (<a href=\'https://github.com/naofum\'>GitHub</a>)&nbsp]]>
-    </string>
-
-    <string name="build_number">ビルドバージョン</string>
-
     <!-- Preference categories -->
     <string name="settings">オプション</string>
     <string name="other">その他</string>

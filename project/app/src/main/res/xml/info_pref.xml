@@ -96,9 +96,4 @@
         android:summary="@string/lightColor_summary"
         android:title="@string/lightColor" />
 
-    <!-- Build number -->
-    <Preference
-        android:key="build_number"
-        android:title="@string/build_number" />
-
 </PreferenceScreen>

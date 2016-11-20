@@ -8,6 +8,7 @@ Icon by **JediBurrell**
 Git page: https://github.com/JediBurrell
 
 
+
 Battery Live is a simple app to apply a live wallpaper. 
 The app supports 5.0+ devices.
 
@@ -22,6 +23,8 @@ The app supports 5.0+ devices.
    - choose between light, dark and darker themes;
    - toolbar coloring;
    - light status bar;
+- Custom credits page;
+
 
 
 ![ScreenShot](https://raw.githubusercontent.com/enricocid/Battery-Live/master/art/screens3.png)
@@ -46,48 +49,6 @@ F-Droid
 
 
 
-
--------------
-**CREDITS**
-
-**- Ivan D'Ortenzio**
-@ivn888
-
-Git page:
-https://github.com/ivn888
-
-
-**- materialpalette.com**
-
-Page:
-https://www.materialpalette.com/
-
-
-**- VintageChroma by Pavel Sikun**
-@MrBIMC
-
-Git page:
-https://github.com/MrBIMC/VintageChroma
-
-
-**- material-dialogs commons by Aidan Follestad**
-@afollestad
-
-Git page:
-https://github.com/afollestad/material-dialogs
-
-
-**- Responsive toolbar by Lucas Urbas**
-@lurbas
-
-Page:
-https://medium.com/@lucasurbas/making-android-toolbar-responsive-2627d4e07129
-
-**- naofum for Japanese translations**
-@naofum
-
-Git page:
-https://github.com/naofum
 
 -------------------
 This app follows the **KISS phylosophy** (https://en.wikipedia.org/wiki/KISS_principle), it means that the code/design will be kept simple & fast with no useless implementations/features.

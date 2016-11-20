@@ -5,18 +5,24 @@
 <resources>
     <string name="app_name" translatable="false">Battery Live</string>
 
+    <!-- About things -->
     <string name="about" translatable="false">About</string>
-    <string name="dismiss">Perfect!</string>
-    <string name="about_body"><![CDATA[
-        battery live, an app  designed by <b>Enrico D\'Ortenzio</b>.<br/>
-        <a href=\'https://plus.google.com/u/0/+EnricoDortenzio/posts\'>Google+</a>&nbsp;
-        <a href=\'https://github.com/enricocid\'>GitHub</a>&nbsp<br/>
-        big thanks to:<br/>
-        <b>JediBurrell</b> (<a href=\'https://github.com/JediBurrell\'>GitHub</a>)&nbsp<br/>
-        <b>naofum</b> (<a href=\'https://github.com/naofum\'>GitHub</a>)&nbsp]]>
-</string>
-
-    <string name="build_number">Build version</string>
+    <string name="dev_infos">Developer info</string>
+    <string name="dev_name" translatable="false">\u2022 Enrico D\'Ortenzio</string>
+    <string name="credits">Credits</string>
+    <string name="ivan" translatable="false">\u2022 Ivan D\'Ortenzio</string>
+    <string name="stack" translatable="false">\u2022 stackoverflow</string>
+    <string name="maticons" translatable="false">\u2022 Material design icons</string>
+    <string name="ItsPriyesh" translatable="false">\u2022 Priyesh Patel</string>
+    <string name="MrBIMC" translatable="false">\u2022 Pavel Sikun</string>
+    <string name="jedi" translatable="false">\u2022 JediBurrel</string>
+    <string name="nao" translatable="false">\u2022 naofum</string>
+    <string name="lucas" translatable="false">\u2022 Lucas Urbas</string>
+    <string name="libs">Libraries</string>
+    <string name="appcompat" translatable="false">\u2022 v7 appcompat library</string>
+    <string name="chroma" translatable="false">\u2022 VintageChroma</string>
+    <string name="application_info">Application info</string>
+    <string name="version">Version</string>
 
     <!-- Preference categories -->
     <string name="settings">Options</string>
