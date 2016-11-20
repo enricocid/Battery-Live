@@ -8,6 +8,7 @@ import android.os.BatteryManager;
 import android.os.Handler;
 import android.service.wallpaper.WallpaperService;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AppCompatActivity;
 import android.view.SurfaceHolder;
 
 
@@ -33,27 +34,23 @@ public class LiveWallpaper extends WallpaperService {
     @Override
     public Engine onCreateEngine() {
 
+
         //retrieve charge color
         prefs = this.getSharedPreferences("primaryColor", Context.MODE_PRIVATE);
 
-        String charge = prefs.getString("bottomColor", Integer.toString(ContextCompat.getColor(getApplicationContext(), R.color.defaultBattery)));
-
-        chargecolor = Integer.parseInt(charge);
+        chargecolor = Utils.retrieveChargeColor(prefs, getBaseContext());
 
         //retrieve discharge color
+
         prefs2 = this.getSharedPreferences("secondaryColor", Context.MODE_PRIVATE);
 
-        String discharge = prefs2.getString("topColor", Integer.toString(ContextCompat.getColor(getApplicationContext(), R.color.defaultBatteryComplementary)));
-
-        dischargecolor = Integer.parseInt(discharge);
+        dischargecolor = Utils.retrieveDischargeColor(prefs2, getBaseContext());
 
         //retrieve battery percentage color
+
         prefs3 = this.getSharedPreferences("batteryPercentage", Context.MODE_PRIVATE);
 
-        String batteryperc = prefs3.getString("batteryColor", Integer.toString(ContextCompat.getColor(getApplicationContext(), android.R.color.white)));
-
-        batterycolor = Integer.parseInt(batteryperc);
-
+        batterycolor = Utils.retrieveBatteryColor(prefs3, getBaseContext());
 
         return new MyWallpaperEngine();
     }
