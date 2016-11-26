@@ -279,14 +279,14 @@ public class PreferenceActivity extends AppCompatActivity {
             //restore charge color preference summary on resume
             SharedPreferences prefs = getActivity().getSharedPreferences("primaryColor", Context.MODE_PRIVATE);
 
-            int chargecolor = Utils.retrieveChargeColor(prefs, getContext());
+            int chargecolor = Utils.retrieveChargeColor(prefs, getActivity());
 
             chargePreference.setSummary(Utils.ColorValue(chargecolor));
 
             //restore discharge color preference summary on resume
             SharedPreferences prefs2 = getActivity().getSharedPreferences("secondaryColor", Context.MODE_PRIVATE);
 
-            int dischargecolor = Utils.retrieveDischargeColor(prefs2, getContext());
+            int dischargecolor = Utils.retrieveDischargeColor(prefs2, getActivity());
 
             dischargePreference.setSummary(Utils.ColorValue(dischargecolor));
 
@@ -294,7 +294,7 @@ public class PreferenceActivity extends AppCompatActivity {
 
             SharedPreferences prefs3 = getActivity().getSharedPreferences("batteryPercentage", Context.MODE_PRIVATE);
 
-            int batterycolor = Utils.retrieveBatteryColor(prefs3, getContext());
+            int batterycolor = Utils.retrieveBatteryColor(prefs3, getActivity());
 
             batteryColor.setSummary(Utils.ColorValue(batterycolor));
 
