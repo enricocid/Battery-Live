@@ -24,9 +24,9 @@ class Preferences {
     //multi-preference dialog for live wallpaper mode options
     static void resolveMode(Context context, Canvas canvas, int charge, int discharge) {
 
-        int height;
+        float height;
 
-        int width;
+        float width;
 
         WindowManager window = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
 
@@ -41,10 +41,10 @@ class Preferences {
 
         //get battery level
         BatteryManager bm = (BatteryManager) context.getSystemService(BATTERY_SERVICE);
-        int batLevel = bm.getIntProperty(BatteryManager.BATTERY_PROPERTY_CAPACITY);
+        float batLevel = bm.getIntProperty(BatteryManager.BATTERY_PROPERTY_CAPACITY);
 
         //do some proportions
-        int battery_complementary = height - ((batLevel * height) / 100);
+        float battery_complementary = height - ((batLevel * height) / 100);
 
         //Mode options
         String choice = PreferenceManager.getDefaultSharedPreferences(context)
@@ -88,7 +88,7 @@ class Preferences {
     }
 
     //battery-context colors
-    private static void batteryModes(Context context, Paint p, int batLevel) {
+    private static void batteryModes(Context context, Paint p, float batLevel) {
 
         if (batLevel <= 100)
             p.setColor(ContextCompat.getColor(context, R.color.materialGreen));
