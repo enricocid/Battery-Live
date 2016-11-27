@@ -30,7 +30,7 @@ The app supports 5.0+ devices.
 ![ScreenShot](https://raw.githubusercontent.com/enricocid/Battery-Live/master/art/screens4.png)
 
 
-You can download the latest (2.1.1) signed APK from this repo here: https://github.com/enricocid/Battery-Live/raw/master/project/app/app-release.apk
+You can download the latest (2.1.2) signed APK from this repo here: https://github.com/enricocid/Battery-Live/raw/master/project/app/app-release.apk
 
 
 The app is available on:
