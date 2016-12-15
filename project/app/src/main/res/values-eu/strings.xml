@@ -3,24 +3,11 @@
 <!-- strings -->
 
 <resources>
-    <string name="app_name" translatable="false">Battery Live</string>
 
     <!-- About things -->
-    <string name="about" translatable="false">About</string>
     <string name="dev_infos">Garatzailearen informazioa</string>
-    <string name="dev_name" translatable="false">\u2022 Enrico D\'Ortenzio</string>
     <string name="credits">Kredituak</string>
-    <string name="ivan" translatable="false">\u2022 Ivan D\'Ortenzio</string>
-    <string name="stack" translatable="false">\u2022 stackoverflow</string>
-    <string name="maticons" translatable="false">\u2022 Material design icons</string>
-    <string name="ItsPriyesh" translatable="false">\u2022 Priyesh Patel</string>
-    <string name="MrBIMC" translatable="false">\u2022 Pavel Sikun</string>
-    <string name="jedi" translatable="false">\u2022 JediBurrel</string>
-    <string name="nao" translatable="false">\u2022 naofum</string>
-    <string name="lucas" translatable="false">\u2022 Lucas Urbas</string>
     <string name="libs">Liburutegiak</string>
-    <string name="appcompat" translatable="false">\u2022 v7 appcompat library</string>
-    <string name="chroma" translatable="false">\u2022 VintageChroma</string>
     <string name="application_info">Aplikazioaren informazioa</string>
     <string name="version">Bertsioa</string>
 
@@ -29,7 +16,6 @@
     <string name="other">Bestelakoak</string>
 
     <!-- live wallpaper modes -->
-    <string name="pref_mode" translatable="false">pref_mode</string>
     <string name="day_mode">Egunaren ordua</string>
     <string name="battery_mode">Bateriaren kolorea</string>
     <string name="default_mode">Pertsonalizatua</string>
@@ -49,12 +35,6 @@
     <string name="typeface">Aldatu tipografia</string>
     <string name="typeface_summary">Aldatu bateriaren ehunekoaren testu tipografia</string>
 
-    <string name="pref_typeface" translatable="false">pref_typeface</string>
-    <string name="serif" translatable="false">Serif</string>
-    <string name="sansserif" translatable="false">Sans serif</string>
-    <string name="monospace" translatable="false">Monospace</string>
-    <string name="normal_bold" translatable="false">Normal bold</string>
-    <string name="normal" translatable="false">Normal</string>
     <string name="txt_size">Aldatu tamaina</string>
     <string name="txt_size_summary">Aldatu bateriaren ehunekoaren tamaina</string>
     <string name="color">Aldatu kolorea</string>
@@ -62,8 +42,6 @@
     <!-- Theme options -->
     <string name="pref_theme_title">Aplikazioaren gaia</string>
     <string name="themesum">Aukeratu zure gustuko gaia</string>
-    <string name="pref_theme" translatable="false">pref_theme</string>
-    <string name="pref_theme_list" translatable="false">pref_theme_list</string>
     <string name="light_theme">Argia</string>
     <string name="dark_theme">Iluna</string>
     <string name="darkest_theme">Ilunagoa</string>
