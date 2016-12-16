@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- strings -->
+
+<resources>
+
+    <!-- About things -->
+    <string name="dev_infos">Garatzailearen informazioa</string>
+    <string name="credits">Kredituak</string>
+    <string name="libs">Liburutegiak</string>
+    <string name="application_info">Aplikazioaren informazioa</string>
+    <string name="version">Bertsioa</string>
+
+    <!-- Preference categories -->
+    <string name="settings">Aukerak</string>
+    <string name="other">Bestelakoak</string>
+
+    <!-- live wallpaper modes -->
+    <string name="day_mode">Egunaren ordua</string>
+    <string name="battery_mode">Bateriaren kolorea</string>
+    <string name="default_mode">Pertsonalizatua</string>
+    <string name="mode">Horma-paper dinamikoaren aukerak</string>
+    <string name="mode_summary">Aukeratu horma-paper dinamikoaren modua</string>
+
+    <!-- default modes -->
+    <string name="charge">Karga kolorea</string>
+    <string name="discharge">Deskarga kolorea</string>
+    <string name="apply">Ezarri!</string>
+    <string name="apply_summary">Sakatu aldaketak ezartzeko!</string>
+
+    <!-- battery percentage options -->
+    <string name="battery_text">Aktibatu bateriaren ehunekoa</string>
+    <string name="battery_text_summary">Erakutsi bateriaren ehunekoa horma-paperaren erdian</string>
+
+    <string name="typeface">Aldatu tipografia</string>
+    <string name="typeface_summary">Aldatu bateriaren ehunekoaren testu tipografia</string>
+
+    <string name="txt_size">Aldatu tamaina</string>
+    <string name="txt_size_summary">Aldatu bateriaren ehunekoaren tamaina</string>
+    <string name="color">Aldatu kolorea</string>
+
+    <!-- Theme options -->
+    <string name="pref_theme_title">Aplikazioaren gaia</string>
+    <string name="themesum">Aukeratu zure gustuko gaia</string>
+    <string name="light_theme">Argia</string>
+    <string name="dark_theme">Iluna</string>
+    <string name="darkest_theme">Ilunagoa</string>
+    <string name="toolbarColor">Aldatu tresna-barraren kolorea</string>
+    <string name="lightColor">Ezarri tresna-barraren argia</string>
+    <string name="lightColor_summary">Ezarri tonu beltza egoera barraren ikonoei</string>
+    <string name="message">Ezaugarri hau ez da Lollipop-en eskuragarri</string>
+
+</resources>
