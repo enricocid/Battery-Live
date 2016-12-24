@@ -255,7 +255,7 @@ class Preferences {
 
     //are light icons enabled?
     static boolean LightIconsEnabled(Context context) {
-        return android.support.v7.preference.PreferenceManager.getDefaultSharedPreferences(context)
+        return android.preference.PreferenceManager.getDefaultSharedPreferences(context)
                 .getBoolean("lightColored", false);
     }
 

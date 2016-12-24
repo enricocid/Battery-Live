@@ -1,7 +1,5 @@
 package com.enrico.earthquake.batterysimplysolid;
 
-import android.content.Context;
-import android.content.SharedPreferences;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Rect;
@@ -9,6 +7,8 @@ import android.os.BatteryManager;
 import android.os.Handler;
 import android.service.wallpaper.WallpaperService;
 import android.view.SurfaceHolder;
+
+import com.enrico.colorpicker.colorDialog;
 
 
 public class LiveWallpaper extends WallpaperService {
@@ -20,13 +20,6 @@ public class LiveWallpaper extends WallpaperService {
 
     int batterycolor;
 
-    //shared preferences
-    SharedPreferences prefs;
-
-    SharedPreferences prefs2;
-
-    SharedPreferences prefs3;
-
     Rect rect;
 
     Paint paint;
@@ -36,23 +29,15 @@ public class LiveWallpaper extends WallpaperService {
     @Override
     public Engine onCreateEngine() {
 
-
+        //get picker colors
         //retrieve charge color
-        prefs = this.getSharedPreferences("primaryColor", Context.MODE_PRIVATE);
-
-        chargecolor = Utils.retrieveChargeColor(prefs, getBaseContext());
+        chargecolor = colorDialog.getPickerColor(getBaseContext(), 1);
 
         //retrieve discharge color
-
-        prefs2 = this.getSharedPreferences("secondaryColor", Context.MODE_PRIVATE);
-
-        dischargecolor = Utils.retrieveDischargeColor(prefs2, getBaseContext());
+        dischargecolor = colorDialog.getPickerColor(getBaseContext(), 2);
 
         //retrieve battery percentage color
-
-        prefs3 = this.getSharedPreferences("batteryPercentage", Context.MODE_PRIVATE);
-
-        batterycolor = Utils.retrieveBatteryColor(prefs3, getBaseContext());
+        batterycolor = colorDialog.getPickerColor(getBaseContext(), 3);
 
         //allocate rect and paint
         rect = new Rect();

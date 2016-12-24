@@ -13,14 +13,12 @@
     <string name="ivan" translatable="false">\u2022 Ivan D\'Ortenzio</string>
     <string name="stack" translatable="false">\u2022 stackoverflow</string>
     <string name="maticons" translatable="false">\u2022 Material design icons</string>
-    <string name="ItsPriyesh" translatable="false">\u2022 Priyesh Patel</string>
-    <string name="MrBIMC" translatable="false">\u2022 Pavel Sikun</string>
     <string name="jedi" translatable="false">\u2022 JediBurrel</string>
     <string name="nao" translatable="false">\u2022 naofum</string>
     <string name="lucas" translatable="false">\u2022 Lucas Urbas</string>
     <string name="libs">Libraries</string>
     <string name="appcompat" translatable="false">\u2022 v7 appcompat library</string>
-    <string name="chroma" translatable="false">\u2022 VintageChroma</string>
+    <string name="colorpicker" translatable="false">\u2022 color picker library</string>
     <string name="application_info">Application info</string>
     <string name="version">Version</string>
 

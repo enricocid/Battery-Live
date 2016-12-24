@@ -21,10 +21,10 @@ public class AboutActivity extends AppCompatActivity {
     ContextThemeWrapper themeWrapper;
 
     //get all the TextViews
-    TextView dev, enricoGit, enricoGplus, credits, ivanGit, ivanGplus, stack, maticons, itspriyeshGit, pavelGit, jediGit, naoGit, lucas, appCompat, chromaGit, libraries, appInfo, build, sources;
+    TextView dev, enricoGit, enricoGplus, credits, ivanGit, ivanGplus, stack, maticons, jediGit, naoGit, lucas, appCompat, colorPicker, libraries, appInfo, build, sources;
 
     //Get all the Stings
-    String enricoGitPage, enricoGplusPage, ivanGitPage, ivanGplusPage, stackPage, maticonsPage, itspriyeshGitPage, pavelGitPage, jediGitPage, naoGitPage, lucasPage, appCompatPage, chromaGitPage, version, appGit;
+    String enricoGitPage, enricoGplusPage, ivanGitPage, ivanGplusPage, stackPage, maticonsPage, jediGitPage, naoGitPage, lucasPage, appCompatPage, colorPickerPage, version, appGit;
 
     //method to set clickable links
     @SuppressWarnings("deprecation")
@@ -140,20 +140,6 @@ public class AboutActivity extends AppCompatActivity {
 
         maticons.setText(setTextLinks(maticonsPage, maticons));
 
-        //Priyesh
-        itspriyeshGit = (TextView) findViewById(R.id.itspriyesh_git);
-
-        itspriyeshGitPage = "<a href='https://github.com/ItsPriyesh/'>github";
-
-        itspriyeshGit.setText(setTextLinks(itspriyeshGitPage, itspriyeshGit));
-
-        //Pavel
-        pavelGit = (TextView) findViewById(R.id.mrbimc_git);
-
-        pavelGitPage = "<a href='https://github.com/MrBIMC/'>github";
-
-        pavelGit.setText(setTextLinks(pavelGitPage, pavelGit));
-
         //Jedi
         jediGit = (TextView) findViewById(R.id.jedi_git);
 
@@ -183,12 +169,12 @@ public class AboutActivity extends AppCompatActivity {
 
         appCompat.setText(setTextLinks(appCompatPage, appCompat));
 
-        //chroma
-        chromaGit = (TextView) findViewById(R.id.chroma_git);
+        //color picker by myself medesimo
+        colorPicker = (TextView) findViewById(R.id.colorpicker_page);
 
-        chromaGitPage = "<a href='https://github.com/MrBIMC/VintageChroma/'>github";
+        colorPickerPage = "<a href='https://github.com/enricocid/Color-picker-library'>github";
 
-        chromaGit.setText(setTextLinks(chromaGitPage, chromaGit));
+        colorPicker.setText(setTextLinks(colorPickerPage, colorPicker));
 
         //Application info
         //set build version
@@ -206,7 +192,7 @@ public class AboutActivity extends AppCompatActivity {
         sources.setText(setTextLinks(appGit, sources));
 
         //set text options
-        setTextOptions(enricoGit, enricoGplus, ivanGit, itspriyeshGit, pavelGit, jediGit, naoGit, chromaGit, build, sources);
+        setTextOptions(enricoGit, enricoGplus, ivanGit, jediGit, naoGit, build, sources);
     }
 
     //set text options

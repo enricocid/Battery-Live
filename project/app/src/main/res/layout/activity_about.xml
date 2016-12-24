@@ -4,10 +4,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/content_frame"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/theme_background">
+    android:background="?attr/theme_background"
+    android:orientation="vertical">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar2"
@@ -20,29 +20,30 @@
         tools:ignore="NewApi" />
 
     <ScrollView
-        android:layout_width="match_parent" android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:clipToPadding="false"
-        android:scrollbars="none"
-        android:paddingTop="@dimen/activity_vertical_margin"
         android:paddingBottom="@dimen/activity_vertical_margin"
         android:paddingLeft="@dimen/activity_horizontal_margin"
-        android:paddingRight="@dimen/activity_horizontal_margin">
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:scrollbars="none">
 
         <LinearLayout
-            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
             <TextView
-                android:text="@string/dev_infos"
                 android:id="@+id/dev"
-                style="@style/HeadlineTextStyle" />
+                style="@style/HeadlineTextStyle"
+                android:text="@string/dev_infos" />
 
             <TextView
-                android:text="@string/dev_name"
                 style="@style/SubtitleStyle"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:text="@string/dev_name" />
 
             <TextView
                 android:id="@+id/enrico_git"
@@ -58,14 +59,14 @@
 
             <TextView
                 android:id="@+id/credits"
-                android:text="@string/credits"
-                style="@style/HeadlineTextStyle" />
+                style="@style/HeadlineTextStyle"
+                android:text="@string/credits" />
 
             <TextView
-                android:text="@string/ivan"
                 style="@style/SubtitleStyle"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:text="@string/ivan" />
 
             <TextView
                 android:id="@+id/ivan_git"
@@ -80,10 +81,10 @@
                 android:layout_height="wrap_content" />
 
             <TextView
-                android:text="@string/stack"
                 style="@style/SubtitleStyle"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:text="@string/stack" />
 
             <TextView
                 android:id="@+id/stack_page"
@@ -92,10 +93,10 @@
                 android:layout_height="wrap_content" />
 
             <TextView
-                android:text="@string/maticons"
                 style="@style/SubtitleStyle"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:text="@string/maticons" />
 
             <TextView
                 android:id="@+id/maticons_page"
@@ -104,35 +105,10 @@
                 android:layout_height="wrap_content" />
 
             <TextView
-                android:text="@string/ItsPriyesh"
                 style="@style/SubtitleStyle"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-            <TextView
-                android:id="@+id/itspriyesh_git"
-                style="@style/BodyStyle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-
-            <TextView
-                android:text="@string/MrBIMC"
-                style="@style/SubtitleStyle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-            <TextView
-                android:id="@+id/mrbimc_git"
-                style="@style/BodyStyle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-            <TextView
-                android:text="@string/jedi"
-                style="@style/SubtitleStyle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:text="@string/jedi" />
 
             <TextView
                 android:id="@+id/jedi_git"
@@ -141,10 +117,10 @@
                 android:layout_height="wrap_content" />
 
             <TextView
-                android:text="@string/nao"
                 style="@style/SubtitleStyle"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:text="@string/nao" />
 
             <TextView
                 android:id="@+id/nao_git"
@@ -153,10 +129,10 @@
                 android:layout_height="wrap_content" />
 
             <TextView
-                android:text="@string/lucas"
                 style="@style/SubtitleStyle"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:text="@string/lucas" />
 
             <TextView
                 android:id="@+id/lucas_page"
@@ -166,14 +142,14 @@
 
             <TextView
                 android:id="@+id/libs"
-                android:text="@string/libs"
-                style="@style/HeadlineTextStyle" />
+                style="@style/HeadlineTextStyle"
+                android:text="@string/libs" />
 
             <TextView
-                android:text="@string/appcompat"
                 style="@style/SubtitleStyle"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:text="@string/appcompat" />
 
             <TextView
                 android:id="@+id/appcompat_page"
@@ -182,21 +158,21 @@
                 android:layout_height="wrap_content" />
 
             <TextView
-                android:text="@string/chroma"
                 style="@style/SubtitleStyle"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:text="@string/colorpicker" />
 
             <TextView
-                android:id="@+id/chroma_git"
+                android:id="@+id/colorpicker_page"
                 style="@style/BodyStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
             <TextView
                 android:id="@+id/app_info"
-                android:text="@string/application_info"
-                style="@style/HeadlineTextStyle" />
+                style="@style/HeadlineTextStyle"
+                android:text="@string/application_info" />
 
             <TextView
                 android:id="@+id/version"

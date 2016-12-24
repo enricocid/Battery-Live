@@ -3,7 +3,6 @@
 <!-- Preferences -->
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/preference_screen">
 
     <PreferenceCategory android:title="@string/settings" />
@@ -18,20 +17,14 @@
         android:title="@string/mode" />
 
     <!-- Charge color -->
-    <com.pavelsikun.vintagechroma.ChromaPreference
+    <Preference
         android:key="chargeColor"
-        android:title="@string/charge"
-        app:chromaColorMode="RGB"
-        app:chromaIndicatorMode="HEX"
-        app:chromaInitialColor="@color/defaultBattery" />
+        android:title="@string/charge" />
 
     <!-- Discharge color -->
-    <com.pavelsikun.vintagechroma.ChromaPreference
+    <Preference
         android:key="dischargeColor"
-        android:title="@string/discharge"
-        app:chromaColorMode="RGB"
-        app:chromaIndicatorMode="HEX"
-        app:chromaInitialColor="@color/defaultBatteryComplementary" />
+        android:title="@string/discharge" />
 
     <!-- Add battery text -->
     <SwitchPreference
@@ -57,12 +50,9 @@
         android:title="@string/txt_size" />
 
     <!-- Battery percentage color -->
-    <com.pavelsikun.vintagechroma.ChromaPreference
+    <Preference
         android:key="batteryColor"
-        android:title="@string/color"
-        app:chromaColorMode="RGB"
-        app:chromaIndicatorMode="HEX"
-        app:chromaInitialColor="@android:color/white" />
+        android:title="@string/color" />
 
     <!-- Apply -->
     <Preference
@@ -82,12 +72,9 @@
         android:title="@string/pref_theme_title" />
 
     <!-- Toolbar color -->
-    <com.pavelsikun.vintagechroma.ChromaPreference
+    <Preference
         android:key="toolbarColor"
-        android:title="@string/toolbarColor"
-        app:chromaColorMode="RGB"
-        app:chromaIndicatorMode="HEX"
-        app:chromaInitialColor="@color/colorPrimary" />
+        android:title="@string/toolbarColor" />
 
     <!-- Light colored status bar -->
     <SwitchPreference

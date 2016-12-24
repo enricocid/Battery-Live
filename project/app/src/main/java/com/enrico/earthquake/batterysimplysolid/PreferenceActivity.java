@@ -3,7 +3,6 @@ package com.enrico.earthquake.batterysimplysolid;
 import android.annotation.SuppressLint;
 import android.app.WallpaperManager;
 import android.content.ComponentName;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
@@ -13,7 +12,7 @@ import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceScreen;
-import android.support.annotation.ColorInt;
+import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.view.ContextThemeWrapper;
 import android.support.v7.view.menu.ActionMenuItemView;
@@ -23,13 +22,17 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.pavelsikun.vintagechroma.ChromaPreference;
-import com.pavelsikun.vintagechroma.OnColorSelectedListener;
+import com.enrico.colorpicker.colorDialog;
 
 import java.util.ArrayList;
 
+import static com.enrico.earthquake.batterysimplysolid.PreferenceActivity.SettingsFragment.batteryColor;
+import static com.enrico.earthquake.batterysimplysolid.PreferenceActivity.SettingsFragment.chargePreference;
+import static com.enrico.earthquake.batterysimplysolid.PreferenceActivity.SettingsFragment.dischargePreference;
+import static com.enrico.earthquake.batterysimplysolid.PreferenceActivity.SettingsFragment.toolbarColor;
+
 @SuppressLint("NewApi")
-public class PreferenceActivity extends AppCompatActivity {
+public class PreferenceActivity extends AppCompatActivity implements colorDialog.ColorSelectedListener {
 
     //ContextThemeWrapper
     ContextThemeWrapper themeWrapper;
@@ -40,6 +43,7 @@ public class PreferenceActivity extends AppCompatActivity {
 
         //apply activity's theme if dark theme is enabled
         themeWrapper = new ContextThemeWrapper(getBaseContext(), this.getTheme());
+
         Preferences.applyTheme(themeWrapper, getBaseContext());
 
         //apply light status bar icons if enabled
@@ -68,6 +72,7 @@ public class PreferenceActivity extends AppCompatActivity {
                 if (views.isEmpty()) {
                     return;
                 }
+
                 ((ActionMenuItemView) views.get(0)).setIcon(Preferences.LightIconsEnabled(PreferenceActivity.this) ? getDrawable(R.drawable.ic_information) : getDrawable(R.drawable.ic_information_dark));
                 toolbar.setTitleTextColor(Preferences.LightIconsEnabled(PreferenceActivity.this) ? Color.BLACK : Color.WHITE);
                 final Drawable drawable = getResources().getDrawable(Preferences.LightIconsEnabled(PreferenceActivity.this) ? R.drawable.ic_close : R.drawable.ic_close_dark, getTheme());
@@ -129,13 +134,52 @@ public class PreferenceActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    public void onColorSelection(DialogFragment dialogFragment, int color) {
+
+        int tag;
+
+        tag = Integer.valueOf(dialogFragment.getTag());
+
+        switch (tag) {
+
+            case 1:
+
+                colorDialog.setColorPreferenceSummary(chargePreference, color, PreferenceActivity.this, getResources());
+                colorDialog.setPickerColor(PreferenceActivity.this, 1, color);
+
+                break;
+
+            case 2:
+
+                colorDialog.setColorPreferenceSummary(dischargePreference, color, PreferenceActivity.this, getResources());
+                colorDialog.setPickerColor(PreferenceActivity.this, 2, color);
+                break;
+
+            case 3:
+
+                colorDialog.setColorPreferenceSummary(batteryColor, color, PreferenceActivity.this, getResources());
+                colorDialog.setPickerColor(PreferenceActivity.this, 3, color);
+                break;
+
+            case 4:
+
+                colorDialog.setColorPreferenceSummary(toolbarColor, color, PreferenceActivity.this, getResources());
+                colorDialog.setPickerColor(PreferenceActivity.this, 4, color);
+                Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+                Utils.changeToolbarColor(this, toolbar, color);
+
+                break;
+        }
+    }
+
     public static class SettingsFragment extends PreferenceFragment {
 
-        //chroma preferences
-        ChromaPreference chargePreference;
-        ChromaPreference dischargePreference;
-        ChromaPreference batteryColor;
-        ChromaPreference toolbarColor;
+        //color picker preferences
+        static Preference chargePreference;
+        static Preference dischargePreference;
+        static Preference batteryColor;
+        static Preference toolbarColor;
 
         private SharedPreferences.OnSharedPreferenceChangeListener mListenerOptions;
 
@@ -144,32 +188,74 @@ public class PreferenceActivity extends AppCompatActivity {
             super.onCreate(savedInstanceState);
             addPreferencesFromResource(R.xml.info_pref);
 
+            final AppCompatActivity appCompatActivity = (AppCompatActivity) getActivity();
+
             //get preference screen
             final PreferenceScreen screen = getPreferenceScreen();
 
+            //get picker preferences
+
             //get charge color preference
-            chargePreference = (ChromaPreference) findPreference("chargeColor");
+            chargePreference = findPreference("chargeColor");
 
-            //on click save the selected color to SharedPreferences
-            chargePreference.setOnColorSelectedListener(new OnColorSelectedListener() {
+            //get discharge color preference
+            dischargePreference = findPreference("dischargeColor");
+
+            //battery percentage color chooser preference
+            batteryColor = findPreference("batteryColor");
+
+            //toolbar color preference
+            toolbarColor = findPreference("toolbarColor");
+
+            //get preferences colors
+            int color = colorDialog.getPickerColor(getActivity(), 1);
+            int color2 = colorDialog.getPickerColor(getActivity(), 2);
+            int color3 = colorDialog.getPickerColor(getActivity(), 3);
+            int color4 = colorDialog.getPickerColor(getActivity(), 4);
+
+            //set preferences colors
+            colorDialog.setColorPreferenceSummary(chargePreference, color, getActivity(), getResources());
+            colorDialog.setColorPreferenceSummary(dischargePreference, color2, getActivity(), getResources());
+            colorDialog.setColorPreferenceSummary(batteryColor, color3, getActivity(), getResources());
+            colorDialog.setColorPreferenceSummary(toolbarColor, color4, getActivity(), getResources());
+
+            //set all color pickers dialogs
+            //charge color
+            chargePreference.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
                 @Override
-                public void onColorSelected(@ColorInt int color) {
+                public boolean onPreferenceClick(Preference preference) {
 
-                    Utils.sendChargeColor(getActivity(), color);
-
+                    colorDialog.showColorPicker(appCompatActivity, 1);
+                    return false;
                 }
             });
 
-            //get discharge color preference
-            dischargePreference = (ChromaPreference) findPreference("dischargeColor");
-
-            //on click save the selected color to SharedPreferences
-            dischargePreference.setOnColorSelectedListener(new OnColorSelectedListener() {
+            //discharge color
+            dischargePreference.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
                 @Override
-                public void onColorSelected(@ColorInt int color) {
+                public boolean onPreferenceClick(Preference preference) {
 
-                    Utils.sendDischargeColor(getActivity(), color);
+                    colorDialog.showColorPicker(appCompatActivity, 2);
+                    return false;
+                }
+            });
 
+            //battery color
+            batteryColor.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+                @Override
+                public boolean onPreferenceClick(Preference preference) {
+                    colorDialog.showColorPicker(appCompatActivity, 3);
+                    return false;
+                }
+            });
+
+            //toolbar color
+            toolbarColor.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+                @Override
+                public boolean onPreferenceClick(Preference preference) {
+
+                    colorDialog.showColorPicker(appCompatActivity, 4);
+                    return false;
                 }
             });
 
@@ -200,17 +286,6 @@ public class PreferenceActivity extends AppCompatActivity {
             //get battery percentage enabler
             Preference batteryPreference = findPreference("batteryText");
 
-            //battery percentage color chooser preference
-            batteryColor = (ChromaPreference) findPreference("batteryColor");
-
-            //on click save the selected color to SharedPreferences
-            batteryColor.setOnColorSelectedListener(new OnColorSelectedListener() {
-                @Override
-                public void onColorSelected(@ColorInt int color) {
-                    Utils.sendBatteryColor(getActivity(), color);
-                }
-            });
-
             //check if battery is enabled or not and add o remove typeface, color and size preferences
             resolveBatteryPreference(screen, typefacePreference, batteryColor, sizePreference);
 
@@ -232,28 +307,12 @@ public class PreferenceActivity extends AppCompatActivity {
                 public void onSharedPreferenceChanged(SharedPreferences preftheme, String key) {
 
                     //on theme selection restart the app
-                    if (key.equals(getResources().getString(R.string.pref_theme)) || key.equals("lightColored")) {
+                    if (key.equals(getResources().getString(R.string.pref_theme)) | key.equals("lightColored")) {
                         getActivity().recreate();
                     }
 
                 }
             };
-
-            //toolbar color preference
-            toolbarColor = (ChromaPreference) findPreference("toolbarColor");
-
-            //on click change toolbar color
-            toolbarColor.setOnColorSelectedListener(new OnColorSelectedListener() {
-                @Override
-                public void onColorSelected(@ColorInt int color) {
-
-                    Toolbar toolbar = (Toolbar) getActivity().findViewById(R.id.toolbar);
-
-                    Utils.changeToolbarColor(getActivity(), toolbar, color);
-
-                    Utils.sendToolbarColor(getActivity(), color);
-                }
-            });
 
             //get LightStatusBar preference
             Preference LightStatusBar = findPreference("lightColored");
@@ -276,34 +335,12 @@ public class PreferenceActivity extends AppCompatActivity {
         public void onResume() {
             super.onResume();
 
-            //restore charge color preference summary on resume
-            SharedPreferences prefs = getActivity().getSharedPreferences("primaryColor", Context.MODE_PRIVATE);
-
-            int chargecolor = Utils.retrieveChargeColor(prefs, getActivity());
-
-            chargePreference.setSummary(Utils.ColorValue(chargecolor));
-
-            //restore discharge color preference summary on resume
-            SharedPreferences prefs2 = getActivity().getSharedPreferences("secondaryColor", Context.MODE_PRIVATE);
-
-            int dischargecolor = Utils.retrieveDischargeColor(prefs2, getActivity());
-
-            dischargePreference.setSummary(Utils.ColorValue(dischargecolor));
-
-            //restore battery percentage color preference summary on resume
-
-            SharedPreferences prefs3 = getActivity().getSharedPreferences("batteryPercentage", Context.MODE_PRIVATE);
-
-            int batterycolor = Utils.retrieveBatteryColor(prefs3, getActivity());
-
-            batteryColor.setSummary(Utils.ColorValue(batterycolor));
-
             //restore toolbar color and relative preference summary on resume
             Toolbar toolbar = (Toolbar) getActivity().findViewById(R.id.toolbar);
 
-            Utils.restoreToolbarColor(getActivity(), toolbar);
+            int color4 = colorDialog.getPickerColor(getActivity(), 4);
 
-            Utils.restoreToolbarPreferenceColor(getActivity(), toolbarColor);
+            Utils.changeToolbarColor(getActivity(), toolbar, color4);
 
             //register preferences changes
             getPreferenceManager().getSharedPreferences().registerOnSharedPreferenceChangeListener(mListenerOptions);
@@ -333,5 +370,4 @@ public class PreferenceActivity extends AppCompatActivity {
 
         }
     }
-
 }
