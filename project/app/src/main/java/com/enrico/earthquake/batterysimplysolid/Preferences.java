@@ -32,7 +32,7 @@ class Preferences {
 
         //retrieve display specifications
         DisplayMetrics d = new DisplayMetrics();
-        window.getDefaultDisplay().getMetrics(d);
+        window.getDefaultDisplay().getRealMetrics(d);
 
         width = d.widthPixels;
         height = d.heightPixels;
