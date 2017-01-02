@@ -13,8 +13,8 @@ android {
         applicationId "com.enrico.earthquake.batterysimplysolid"
         minSdkVersion 21
         targetSdkVersion 25
-        versionCode 11
-        versionName "3.0.2"
+        versionCode 12
+        versionName "3.0.3"
     }
     buildTypes {
         release {
@@ -27,5 +27,5 @@ android {
 
 dependencies {
     compile 'com.android.support:appcompat-v7:25.1.0'
-    compile 'com.github.enricocid:cpl:1.0.1'
+    compile 'com.github.enricocid:cpl:1.0.2'
 }
